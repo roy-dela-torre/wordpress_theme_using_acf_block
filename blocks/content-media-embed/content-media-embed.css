@@ -1,0 +1,72 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-content-media-embed .block-contents {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--column-gap);
+}
+
+.lp-content-media-embed--media-left .lp-content-media-embed__media {
+  order: -1;
+}
+
+/* Content
+--------------------------------------------- */
+.lp-content-media-embed__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lp-content-media-embed__actions {
+  margin-top: 12px;
+}
+
+/* Media
+--------------------------------------------- */
+.lp-content-media-embed__media .lp-embed-facade {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+@media screen and (max-width: 767px) {
+  .lp-content-media-embed .block-contents {
+    grid-template-columns: 1fr;
+  }
+  .lp-content-media-embed__media {
+    order: -1;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-content-media-embed__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  color: var(--lp-heading);
+}
+
+.lp-content-media-embed__sub-header {
+  margin: 0;
+  color: var(--lp-heading-strong);
+}
+
+.lp-content-media-embed__body {
+  color: var(--lp-text);
+}

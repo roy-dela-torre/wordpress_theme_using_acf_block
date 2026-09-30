@@ -1,0 +1,189 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-us-map .block-contents {
+  align-items: center;
+  gap: 32px;
+}
+
+.lp-us-map__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Map area
+--------------------------------------------- */
+.lp-us-map__map-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.lp-us-map__map-wrapper {
+  flex: 1;
+  min-width: 0;
+  max-width: 900px;
+}
+.lp-us-map__map-wrapper svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.lp-us-map__map-wrapper svg path {
+  fill: #E1E6EA;
+  stroke: var(--color-surface);
+  stroke-width: 0.6;
+  cursor: default;
+  transition: fill var(--duration-fast) ease, filter var(--duration-fast) ease;
+}
+.lp-us-map__map-wrapper svg path.lp-us-map__state--linked {
+  fill: var(--color-primary);
+  cursor: pointer;
+}
+.lp-us-map__map-wrapper svg path.lp-us-map__state--linked:hover,
+.lp-us-map__map-wrapper svg path.lp-us-map__state--hover {
+  fill: var(--color-accent);
+  filter: drop-shadow(0 2px 4px rgba(3, 55, 74, 0.35));
+}
+
+/* Legend
+--------------------------------------------- */
+.lp-us-map__legend {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lp-us-map__legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 5px;
+}
+.lp-us-map__legend li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+.lp-us-map__legend a {
+  white-space: nowrap;
+  color: var(--lp-link);
+}
+.lp-us-map__legend a:hover {
+  text-decoration: underline;
+}
+
+/* State list
+--------------------------------------------- */
+.lp-us-map__state-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.lp-us-map__state-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 32px;
+}
+.lp-us-map__state-list li {
+  break-inside: avoid;
+  padding-block: 6px;
+}
+.lp-us-map__state-list a {
+  color: var(--lp-link);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  .lp-us-map__map-area {
+    display: none;
+  }
+  .lp-us-map__state-nav {
+    position: static;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+}
+/* Decorations
+--------------------------------------------- */
+.lp-us-map__decorations {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  pointer-events: none;
+}
+.lp-us-map__decorations .left-u-decoration,
+.lp-us-map__decorations .right-circle-decoration {
+  position: absolute;
+  opacity: 0.1;
+}
+.lp-us-map__decorations .left-u-decoration {
+  top: 0;
+  left: 0;
+}
+.lp-us-map__decorations .right-circle-decoration {
+  right: 0;
+  bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .lp-us-map__decorations {
+    display: none;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-us-map__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  color: var(--lp-heading);
+}
+
+.lp-us-map__sub-header {
+  margin: 0;
+  color: var(--lp-heading-strong);
+}
+
+.lp-us-map__body,
+.lp-us-map__caption {
+  text-align: center;
+  color: var(--lp-muted);
+}

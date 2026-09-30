@@ -1,0 +1,32 @@
+{
+  "name": "acf/embed",
+  "title": "Embed (Full Bleed)",
+  "description": "A full-width section containing embedded code.",
+  "style": "file:./embed.css",
+  "editorStyle": "file:./embed.css",
+  "category": "custom-blocks",
+  "icon": "media-code",
+  "keywords": [
+    "map",
+    "google",
+    "embed",
+    "iframe"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "embed.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.789183787223!2d-77.01885352406389!3d38.883064871727115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b77f50ae6f01%3A0x676e7adc4032899b!2sNASA!5e0!3m2!1ses-419!2smx!4v1766529864569!5m2!1ses-419!2smx\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

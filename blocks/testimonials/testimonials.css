@@ -1,0 +1,119 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-testimonials .block-contents {
+  align-items: center;
+  gap: clamp(32px, 4vw, 56px);
+}
+
+/*--------------------------------------------------------------
+# Slider
+--------------------------------------------------------------*/
+.lp-testimonials__slider {
+  width: 100%;
+}
+
+.lp-testimonials__slider-container {
+  width: 100%;
+  padding-block: 12px 24px;
+}
+
+.lp-testimonials__slide.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: auto;
+  margin: 0;
+  padding: clamp(28px, 3vw, 40px);
+  opacity: 0.55;
+  transform: scale(0.94);
+  transition: opacity var(--duration) var(--ease-out), transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+}
+
+.lp-testimonials__slide.swiper-slide-active {
+  opacity: 1;
+  transform: none;
+  box-shadow: var(--shadow-md);
+}
+
+.lp-testimonials__slider-container:not(.swiper-initialized) .lp-testimonials__slide {
+  opacity: 1;
+  transform: none;
+}
+
+.lp-testimonials__quote-icon {
+  width: 40px;
+  height: 32px;
+  fill: var(--color-accent);
+}
+
+/* Pagination
+--------------------------------------------- */
+.lp-testimonials .swiper-pagination.swiper-pagination-horizontal {
+  position: relative;
+  margin-top: 12px;
+}
+
+.lp-testimonials .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: transparent;
+  border: 1.5px solid var(--color-primary-dark);
+  transition: width var(--duration) var(--ease-out), background-color var(--duration) ease;
+}
+
+.lp-testimonials .swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-dark);
+}
+
+.lp-testimonials.is-dark .swiper-pagination-bullet {
+  border-color: var(--color-secondary-light);
+}
+
+.lp-testimonials.is-dark .swiper-pagination-bullet-active {
+  background: var(--color-secondary-light);
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-testimonials__header {
+  margin: 0;
+  max-width: var(--max-width-narrow);
+  font-size: var(--font-size-h1);
+  text-align: center;
+  color: var(--lp-heading);
+}
+
+.lp-testimonials__slide-content {
+  flex: 1;
+  margin: 0;
+}
+
+.lp-testimonials__slide-content p {
+  font-size: var(--font-size-body-large);
+  line-height: 1.6;
+  color: var(--lp-text);
+}
+
+.lp-testimonials__slide-name {
+  font-weight: 700;
+  color: var(--lp-heading);
+}

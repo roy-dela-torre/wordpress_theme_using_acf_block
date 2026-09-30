@@ -1,0 +1,82 @@
+{
+  "name": "acf/state-nav",
+  "title": "State Navigation",
+  "description": "A grid of links to pages with descriptions.",
+  "style": "file:./state-nav.css",
+  "editorStyle": "file:./state-nav.css",
+  "viewScript": "file:./state-nav.js",
+  "editorScript": "file:./state-nav.js",
+  "category": "custom-blocks",
+  "icon": "grid-view",
+  "keywords": [
+    "cards",
+    "grid",
+    "nav",
+    "navigation",
+    "link"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "state-nav.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "header": "ex eu cillum",
+        "sub_header": "ullamco voluptate duis",
+        "body": "Non qui aliqua aliquip consequat mollit aliquip ad eu veniam id eiusmod anim consequat et voluptate.",
+        "button": {
+          "url": "#",
+          "title": "elit incididunt sint",
+          "target": "_self"
+        },
+        "cards": [
+          {
+            "card_title": "pariatur id in",
+            "card_body": "Officia anim veniam laboris eiusmod cupidatat minim.",
+            "card_button": {
+              "url": "#",
+              "title": "adipisicing",
+              "target": "_self"
+            },
+            "card_image": {
+              "ID": 44,
+              "url": "http://launchpad.local/wp-content/uploads/2025/09/nat-uN9OSpSsw4A-unsplash-scaled.jpg",
+              "alt": "Tow truck at night"
+            }
+          },
+          {
+            "card_title": "laboris in enim",
+            "card_body": "Tempor reprehenderit irure in excepteur in quis reprehenderit commodo Lorem proident sunt ipsum.",
+            "card_button": {
+              "url": "#",
+              "title": "voluptate",
+              "target": "_self"
+            }
+          },
+          {
+            "card_title": "tempor laboris",
+            "card_body": "Dolor consequat aliqua ipsum est fugiat quis cupidatat pariatur consequat.",
+            "card_button": {
+              "url": "#",
+              "title": "duis",
+              "target": "_self"
+            }
+          }
+        ],
+        "tint": true,
+        "background": {
+          "ID": 44,
+          "url": "http://launchpad.local/wp-content/uploads/2025/09/nat-uN9OSpSsw4A-unsplash-scaled.jpg",
+          "alt": "Card background"
+        }
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "key": "group_6a41dfd4be57c",
+    "title": "CPT: Service Detail",
+    "fields": [
+        {
+            "key": "field_6a41dfd4bfc9c",
+            "label": "Display Title",
+            "name": "display_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This field will be displayed in the front end. If this field is empty, the program title will be displayed in the front end.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1786653344
+}

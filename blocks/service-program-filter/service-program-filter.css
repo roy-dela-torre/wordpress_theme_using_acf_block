@@ -1,0 +1,163 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-service-program-filter .block-contents {
+  gap: clamp(32px, 4vw, 48px);
+}
+
+.lp-service-program-filter__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  max-width: none;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--lp-rule);
+}
+
+/* Filter
+--------------------------------------------- */
+.lp-service-program-filter__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+  margin-top: 8px;
+}
+
+.lp-service-program-filter__select-wrap {
+  position: relative;
+}
+.lp-service-program-filter__select-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-primary-dark);
+  border-bottom: 2px solid var(--color-primary-dark);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.lp-service-program-filter__select {
+  appearance: none;
+  min-width: 280px;
+  padding: 18px 56px 18px 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-primary-dark);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-large);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+.lp-service-program-filter__select:hover {
+  border-color: var(--color-primary);
+}
+.lp-service-program-filter__select:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 767px) {
+  .lp-service-program-filter__select-wrap,
+  .lp-service-program-filter__select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+/* Grid Layout
+--------------------------------------------- */
+.lp-service-program-filter__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.lp-service-program-filter__grid:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lp-service-program-filter__grid > * {
+    animation: lp-filter-in var(--duration-slow) var(--ease-out) both;
+  }
+}
+
+.lp-service-program-filter__grid > :nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.lp-service-program-filter__grid > :nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.lp-service-program-filter__grid > :nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.lp-service-program-filter__grid > :nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.lp-service-program-filter__grid > :nth-child(5) {
+  animation-delay: 240ms;
+}
+
+.lp-service-program-filter__grid > :nth-child(6) {
+  animation-delay: 300ms;
+}
+
+@keyframes lp-filter-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .lp-service-program-filter__grid {
+    grid-template-columns: 1fr;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-service-program-filter__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  font-weight: 600;
+  color: var(--lp-heading);
+}
+
+.lp-service-program-filter__body,
+.lp-service-program-filter__label {
+  color: var(--lp-text);
+}
+
+.lp-service-program-filter__label {
+  font-size: var(--font-size-body);
+}

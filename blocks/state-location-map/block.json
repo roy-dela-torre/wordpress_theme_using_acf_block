@@ -1,0 +1,37 @@
+{
+  "name": "acf/state-location-map",
+  "title": "State Location Map",
+  "description": "A map which displays locations filtered by state.",
+  "style": "file:./state-location-map.css",
+  "editorStyle": "file:./state-location-map.css",
+  "category": "custom-blocks",
+  "icon": "align-center",
+  "keywords": [
+    "map",
+    "state",
+    "location"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "state-location-map.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "content": "Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere.",
+        "tint": true,
+        "background": {
+          "ID": 44,
+          "url": "http://launchpad.local/wp-content/uploads/2025/09/nat-uN9OSpSsw4A-unsplash-scaled.jpg",
+          "alt": "Planet in space"
+        }
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

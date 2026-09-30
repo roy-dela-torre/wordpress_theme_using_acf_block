@@ -1,0 +1,160 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-staff .block-contents {
+  align-items: center;
+  gap: clamp(32px, 4vw, 48px);
+}
+
+.lp-staff__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Staff grid
+--------------------------------------------- */
+.lp-staff__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+  max-width: 960px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-staff__member {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.lp-staff__member-media {
+  position: relative;
+  flex-shrink: 0;
+  isolation: isolate;
+}
+.lp-staff__member-media::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+  left: -10px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-accent-lighter);
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.lp-staff__member:hover .lp-staff__member-media::before {
+  transform: scale(1.15);
+}
+
+.lp-staff__img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+}
+
+.lp-staff__member-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Decorations
+--------------------------------------------- */
+.lp-staff__decorations {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  pointer-events: none;
+}
+.lp-staff__decorations .left-u-decoration,
+.lp-staff__decorations .right-circle-decoration {
+  position: absolute;
+  opacity: 0.1;
+}
+.lp-staff__decorations .left-u-decoration {
+  top: 0;
+  left: 0;
+}
+.lp-staff__decorations .right-circle-decoration {
+  right: 0;
+  bottom: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .lp-staff__decorations {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .lp-staff__list {
+    grid-template-columns: 1fr;
+  }
+  .lp-staff__member {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-staff__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  color: var(--lp-heading);
+}
+
+.lp-staff__content {
+  color: var(--lp-text);
+}
+
+.lp-staff__member-name {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-large);
+  color: var(--lp-heading);
+}
+
+.lp-staff__member-credentials {
+  margin: 0;
+  font-weight: 600;
+  color: var(--lp-heading);
+}
+
+.lp-staff__member-description {
+  margin: 0;
+  font-size: var(--font-size-body-small);
+  color: var(--lp-muted);
+}

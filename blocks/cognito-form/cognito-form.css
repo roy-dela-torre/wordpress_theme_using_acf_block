@@ -1,0 +1,131 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-cognito-form .block-contents {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: var(--column-gap);
+}
+
+.lp-cognito-form .block-contents:not(:has(.lp-cognito-form__intro)) {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: var(--max-width-normal);
+}
+
+.lp-cognito-form__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  position: sticky;
+  top: 180px;
+}
+
+.lp-cognito-form__form {
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media screen and (max-width: 767px) {
+  .lp-cognito-form .block-contents {
+    grid-template-columns: 1fr;
+  }
+  .lp-cognito-form__intro {
+    position: static;
+  }
+}
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+:root:root:root:root:root .lp-cognito-form form.cog-form {
+  width: 100%;
+  max-width: 100%;
+}
+
+:root:root:root:root:root .lp-cognito-form .cog-form__container {
+  max-width: 100%;
+}
+
+:root:root:root:root .lp-cognito-form .cog-form:not([data-old-safari]) .cog-row {
+  column-gap: 14px;
+}
+
+:root:root:root:root .lp-cognito-form .cog-form:not([data-old-safari]) .cog-row .cog-col {
+  width: calc(50% - 7px);
+}
+
+:root:root:root:root .lp-cognito-form .cog-form:not([data-old-safari]) .cog-row .cog-col:only-child {
+  width: 100%;
+}
+
+:root:root:root:root .lp-cognito-form .cog-form .cog-row .cog-col input,
+:root:root:root:root .lp-cognito-form .cog-form .cog-row .cog-col textarea {
+  background: var(--color-background-lighter);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+:root:root:root:root .lp-cognito-form .cog-form .cog-row .cog-col input:focus,
+:root:root:root:root .lp-cognito-form .cog-form .cog-row .cog-col textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(41, 134, 165, 0.15);
+  outline: none;
+}
+
+:root:root:root:root:root .lp-cognito-form .cog-cognito--styled .cog-page__navigation .cog-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-primary-darker);
+  font-family: var(--font-family-button);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  transition: background-color var(--duration) var(--ease-out), transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+}
+
+:root:root:root:root:root .lp-cognito-form .cog-cognito--styled .cog-page__navigation .cog-button:hover {
+  background-color: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(255, 184, 28, 0.6);
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-cognito-form__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  color: var(--lp-heading);
+}
+
+.lp-cognito-form__content {
+  color: var(--lp-text);
+}
+
+.lp-cognito-form__disclaimer {
+  margin-top: 24px;
+  color: var(--color-secondary-dark);
+}

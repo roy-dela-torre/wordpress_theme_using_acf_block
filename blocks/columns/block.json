@@ -1,0 +1,53 @@
+{
+  "name": "acf/columns",
+  "title": "Columns",
+  "description": "Display text and images in multiple columns.",
+  "style": "file:./columns.css",
+  "editorStyle": "file:./columns.css",
+  "category": "custom-blocks",
+  "icon": "editor-table",
+  "keywords": [
+    "icon",
+    "columns",
+    "features"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "columns.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "header": "Our Services",
+        "sub_header": "What We Offer",
+        "content": "Incididunt minim id excepteur excepteur nisi. Id sint amet amet enim nostrud laboris dolore proident aliquip cillum. Laboris incididunt Lorem sit ex incididunt.",
+        "tint": true,
+        "background": {
+          "ID": 44,
+          "url": "http://launchpad.local/wp-content/uploads/2025/09/nat-uN9OSpSsw4A-unsplash-scaled.jpg",
+          "alt": "Planet in space"
+        },
+        "columns": [
+          {
+            "title": "Elit Incididunt ullamco",
+            "description": "tempor ut ullamco reprehenderit fugiat cupidatat aliqua exercitation aute sit officia sunt reprehenderit consectetur do"
+          },
+          {
+            "title": "Dolor Site Amet",
+            "description": "tempor ut ullamco reprehenderit fugiat cupidatat aliqua exercitation aute sit officia sunt reprehenderit consectetur do"
+          },
+          {
+            "title": "Ea Labore Anim",
+            "description": "tempor ut ullamco reprehenderit fugiat cupidatat aliqua exercitation aute sit officia sunt reprehenderit consectetur do"
+          }
+        ]
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

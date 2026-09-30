@@ -1,0 +1,73 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-callout .block-contents {
+  align-items: center;
+}
+
+.lp-callout__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: var(--max-width-normal);
+  text-align: center;
+}
+
+.lp-callout__content {
+  max-width: var(--max-width-narrow);
+}
+
+.lp-callout__actions {
+  margin-top: 12px;
+}
+
+/* Panel variant
+--------------------------------------------- */
+.lp-callout--panel .lp-callout__inner {
+  position: relative;
+  padding: clamp(40px, 6vw, 72px) clamp(24px, 6vw, 80px);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 0% 0%, rgba(152, 218, 248, 0.45), transparent 45%), radial-gradient(circle at 100% 100%, rgba(255, 201, 60, 0.25), transparent 40%), var(--color-background-light);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.lp-callout--panel .lp-callout__inner {
+  --lp-heading: var(--color-primary);
+  --lp-text: var(--color-body);
+  --lp-muted: var(--color-secondary-dark);
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-callout__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  color: var(--lp-heading);
+}
+
+.lp-callout__content {
+  color: var(--lp-text);
+}
+
+.lp-callout__disclaimer {
+  margin: 8px 0 0;
+  color: var(--lp-muted);
+}

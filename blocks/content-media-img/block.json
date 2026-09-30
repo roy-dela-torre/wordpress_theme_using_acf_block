@@ -1,0 +1,52 @@
+{
+  "name": "acf/content-media-img",
+  "title": "Content with Image",
+  "description": "A double column layout with text on one side and an image on the other.",
+  "style": "file:./content-media-img.css",
+  "editorStyle": "file:./content-media-img.css",
+  "category": "custom-blocks",
+  "icon": "align-right",
+  "keywords": [
+    "two column",
+    "two col",
+    "dual column",
+    "two column with image",
+    "content"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "content-media-img.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "header": "Lorem ipsum dolor sit amet",
+        "sub_header": "Consectetur adipiscing elit",
+        "body": "Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere.",
+        "button": {
+          "url": "#",
+          "title" : "incididunt dolore irure",
+          "target" : "_self"
+        },
+        "image": {
+          "ID": 90,
+          "url": "http://launchpad.local/wp-content/uploads/2025/10/nasa-8Hjx3GNZYeA-unsplash.jpg",
+          "alt": "Satellite in space"
+        },
+        "tint": true,
+        "tele_track": "job_seekers",
+        "background": {
+          "ID": 44,
+          "url": "http://launchpad.local/wp-content/uploads/2025/09/nat-uN9OSpSsw4A-unsplash-scaled.jpg",
+          "alt": "Planet in space"
+        }
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

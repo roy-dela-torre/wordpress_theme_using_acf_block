@@ -1,0 +1,50 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  padding: 28px clamp(24px, 4vw, 40px);
+  border-left: 6px solid var(--color-accent);
+  background: linear-gradient(90deg, var(--color-background-light) 0%, var(--color-surface) 100%);
+  box-shadow: var(--shadow-md);
+}
+
+.lp-banner__actions {
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .lp-banner__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lp-banner__actions {
+    width: 100%;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-banner__header {
+  margin: 0;
+  font-size: var(--font-size-body-large);
+  font-weight: 700;
+  color: var(--lp-heading-strong);
+}

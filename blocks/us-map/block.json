@@ -1,0 +1,46 @@
+{
+  "name": "acf/us-map",
+  "title": "Interactive US Map",
+  "description": "Clickable SVG map of the United States with per-state links.",
+  "style": "file:./us-map.css",
+  "editorStyle": "file:./us-map.css",
+  "viewScript": "file:./us-map.js",
+  "editorScript": "file:./us-map.js",
+  "category": "custom-blocks",
+  "icon": "location",
+  "keywords": [
+    "map",
+    "us",
+    "states",
+    "interactive"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "us-map.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "header": "Find a Location Near You",
+        "sub_header": "Click your state to learn more",
+        "body": "Select your state on the map below to find services available in your area.",
+        "states": [
+          {
+            "state_code": "TX",
+            "state_url": {
+              "url": "#",
+              "title": "Texas",
+              "target": "_self"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

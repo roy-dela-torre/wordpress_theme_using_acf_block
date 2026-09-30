@@ -1,0 +1,138 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-hero-home {
+  min-height: min(720px, 92svh);
+}
+
+.lp-hero-home .block-contents {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: var(--column-gap);
+}
+
+.lp-hero-home__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 620px;
+}
+
+.lp-hero-home__actions {
+  margin-top: 8px;
+}
+
+/* Stats
+--------------------------------------------- */
+.lp-hero-home__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-hero-home__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+  padding: 18px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+/* Media
+--------------------------------------------- */
+.lp-hero-home__media {
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  margin-bottom: calc(var(--lp-pb-final) * -1);
+}
+
+.lp-hero-home__img {
+  width: 100%;
+  max-height: 640px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+/* Decoration
+--------------------------------------------- */
+.lp-hero-home__background-icon {
+  position: absolute;
+  z-index: 2;
+  top: 2.5%;
+  right: -6%;
+  height: 95%;
+  width: auto;
+  max-width: none;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 767px) {
+  .lp-hero-home .block-contents {
+    grid-template-columns: 1fr;
+  }
+  .lp-hero-home__media,
+  .lp-hero-home__background-icon {
+    display: none;
+  }
+  .lp-hero-home__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lp-hero-home__stat {
+    min-width: 0;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-hero-home__header {
+  margin: 0;
+  font-size: var(--font-size-extra-large);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--lp-heading);
+}
+
+.lp-hero-home__sub-header {
+  margin: 0;
+  color: var(--lp-text);
+}
+
+.lp-hero-home__stat-value {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--lp-heading);
+}
+
+.lp-hero-home__stat-label {
+  font-size: var(--font-size-body-small);
+  line-height: 1.4;
+  color: var(--lp-text);
+}

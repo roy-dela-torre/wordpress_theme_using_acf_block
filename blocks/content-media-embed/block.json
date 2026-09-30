@@ -1,0 +1,49 @@
+{
+  "name": "acf/content-media-embed",
+  "title": "Content with Embed",
+  "description": "A double column layout with text on one side and an embed on the other.",
+  "style": "file:./content-media-embed.css",
+  "editorStyle": "file:./content-media-embed.css",
+  "category": "custom-blocks",
+  "icon": "align-right",
+  "keywords": [
+    "two column",
+    "two col",
+    "dual column",
+    "two column with embed",
+    "embed",
+    "content"
+  ],
+  "acf": {
+    "blockVersion": 3,
+    "hideFieldsInSidebar": true,
+    "mode": "preview",
+    "renderTemplate": "content-media-embed.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "header": "Lorem ipsum dolor sit amet",
+        "sub_header": "Consectetur adipiscing elit",
+        "body": "Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere.",
+        "button": {
+          "url": "#",
+          "title" : "incididunt dolore irure",
+          "target" : "_self"
+        },
+        "embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.789183787223!2d-77.01885352406389!3d38.883064871727115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b77f50ae6f01%3A0x676e7adc4032899b!2sNASA!5e0!3m2!1ses-419!2smx!4v1766529864569!5m2!1ses-419!2smx\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "embed_position": "right",
+        "tint": true,
+        "background": {
+          "ID": 44,
+          "url": "http://launchpad.local/wp-content/uploads/2025/09/nat-uN9OSpSsw4A-unsplash-scaled.jpg",
+          "alt": "Planet in space"
+        }
+      }
+    }
+  },
+  "supports": {
+    "anchor": true
+  }
+}

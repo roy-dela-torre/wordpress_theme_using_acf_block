@@ -1,0 +1,149 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-columns .block-contents {
+  gap: clamp(32px, 4vw, 56px);
+}
+
+/* Intro
+--------------------------------------------- */
+.lp-columns__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  position: relative;
+  isolation: isolate;
+}
+
+.lp-columns__intro::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -25px;
+  left: -45px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--color-background-light);
+}
+
+.lp-columns.has_bg .lp-columns__intro::before {
+  display: none;
+}
+
+/* Grid Layout
+--------------------------------------------- */
+.lp-columns__cols {
+  --cols: 3;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.lp-columns--1-col .lp-columns__cols {
+  --cols: 1;
+}
+
+.lp-columns--2-col .lp-columns__cols {
+  --cols: 2;
+}
+
+.lp-columns--4-col .lp-columns__cols {
+  --cols: 4;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .lp-columns--4-col .lp-columns__cols {
+    --cols: 2;
+  }
+}
+@media screen and (max-width: 767px) {
+  .lp-columns__cols {
+    --cols: 1;
+  }
+}
+/* Column
+--------------------------------------------- */
+.lp-columns__col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lp-columns--text-center .lp-columns__col {
+  align-items: center;
+  text-align: center;
+}
+
+.lp-columns__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1;
+  margin-bottom: 8px;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.lp-columns--text-left .lp-columns__icon-wrapper {
+  max-width: 120px;
+}
+
+.lp-columns__col:hover .lp-columns__icon-wrapper {
+  transform: translateY(-6px);
+}
+
+.lp-columns__icon-wrapper--circle {
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.lp-columns__icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lp-columns__icon-wrapper--circle .lp-columns__icon {
+  object-fit: cover;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-columns__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  color: var(--lp-heading);
+}
+
+.lp-columns__content {
+  color: var(--lp-text);
+}
+
+.lp-columns__title {
+  margin: 0;
+  color: var(--lp-heading-strong);
+}
+
+.lp-columns__description {
+  color: var(--lp-text);
+}

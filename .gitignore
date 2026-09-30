@@ -1,0 +1,32 @@
+# Only the files the live theme needs are kept in this repo.
+# Source/build files below stay on the developer's machine.
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build tooling and SCSS sources (compiled .css files ARE committed)
+package.json
+package-lock.json
+yarn.lock
+composer.json
+composer.lock
+phpcs.xml.dist
+sass/
+blocks/**/*.scss
+*.css.map
+
+# Editor / deploy config
+.vscode/
+.idea/
+.distignore
+
+# Docs and leftovers
+README.md
+program_data.csv
+
+# OS / logs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

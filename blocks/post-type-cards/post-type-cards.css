@@ -1,0 +1,83 @@
+/*--------------------------------------------------------------
+# Breakpoints
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Section spacing (px values, mirrored as CSS tokens)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Block contents
+--------------------------------------------------------------*/
+.lp-post-type-cards .block-contents {
+  gap: clamp(32px, 4vw, 48px);
+}
+
+.lp-post-type-cards__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  max-width: none;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--lp-rule);
+}
+
+.lp-post-type-cards__footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid Layout
+--------------------------------------------- */
+.lp-post-type-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+@media screen and (max-width: 767px) {
+  .lp-post-type-cards__grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Decoration
+--------------------------------------------- */
+.lp-post-type-cards__decoration {
+  position: absolute;
+  z-index: 2;
+  top: 24px;
+  right: max(24px, (100% - var(--content-max-width)) / 2 - 40px);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .lp-post-type-cards__decoration {
+    display: none;
+  }
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* Default Font Style
+--------------------------------------------- */
+.lp-post-type-cards__header {
+  margin: 0;
+  font-size: var(--font-size-h1);
+  font-weight: 600;
+  color: var(--lp-heading);
+}
+
+.lp-post-type-cards__sub-header {
+  margin: 0;
+  color: var(--lp-heading-strong);
+}
+
+.lp-post-type-cards__body {
+  color: var(--lp-text);
+}
