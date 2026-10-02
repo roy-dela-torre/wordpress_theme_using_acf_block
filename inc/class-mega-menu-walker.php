@@ -5,7 +5,7 @@
  * Transforms standard WordPress submenus into mega menu panels
  * with an optional promo column and a grid of link cards.
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 class Mega_Menu_Walker extends Walker_Nav_Menu {
@@ -21,7 +21,7 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		if ( $depth === 0 ) {
-			$output .= '<div class="lp-mega-panel" aria-hidden="true">';
+			$output .= '<div class="ck-mega-panel" aria-hidden="true">';
 			$this->grid_open = false;
 		} else {
 			// Fallback for unexpected deeper levels
@@ -36,10 +36,10 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
 		if ( $depth === 0 ) {
 			// Close the grid wrapper if it was opened
 			if ( $this->grid_open ) {
-				$output .= '</div><!-- .lp-mega-panel__grid -->';
+				$output .= '</div><!-- .ck-mega-panel__grid -->';
 				$this->grid_open = false;
 			}
-			$output .= '</div><!-- .lp-mega-panel -->';
+			$output .= '</div><!-- .ck-mega-panel -->';
 		} else {
 			$output .= '</ul>';
 		}
@@ -59,7 +59,7 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
 			} else {
 				// Open the grid wrapper before the first card
 				if ( ! $this->grid_open ) {
-					$output .= '<div class="lp-mega-panel__grid">';
+					$output .= '<div class="ck-mega-panel__grid">';
 					$this->grid_open = true;
 				}
 				$this->render_card_item( $output, $item );
@@ -101,7 +101,7 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
 
 		// Add dropdown arrow for items with children
 		if ( in_array( 'menu-item-has-children', (array) $item->classes, true ) ) {
-			$output .= ' <span class="lp-mega-arrow"></span>';
+			$output .= ' <span class="ck-mega-arrow"></span>';
 		}
 
 		$output .= '</a>';
@@ -113,7 +113,7 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
 	private function render_promo_item( &$output, $item ) {
 		// Close the grid if it was already opened (promo should come before grid)
 		if ( $this->grid_open ) {
-			$output .= '</div><!-- .lp-mega-panel__grid -->';
+			$output .= '</div><!-- .ck-mega-panel__grid -->';
 			$this->grid_open = false;
 		}
 

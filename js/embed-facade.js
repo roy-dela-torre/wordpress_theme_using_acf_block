@@ -1,16 +1,16 @@
 /**
  * File embed-facade.js.
  *
- * Swaps a `.lp-embed-facade` poster for the real iframe when clicked.
- * Markup comes from lp_embed_facade() in inc/embed-facade.php.
+ * Swaps a `.ck-embed-facade` poster for the real iframe when clicked.
+ * Markup comes from ck_embed_facade() in inc/embed-facade.php.
  * Uses event delegation so it also works for block previews in the editor.
  */
 (function () {
 	'use strict';
 
-	const FACADE = '[data-lp-embed]';
-	const TRIGGER = '.lp-embed-facade__trigger';
-	const POSTER = '.lp-embed-facade__poster';
+	const FACADE = '[data-ck-embed]';
+	const TRIGGER = '.ck-embed-facade__trigger';
+	const POSTER = '.ck-embed-facade__poster';
 
 	/**
 	 * Creates the iframe and hands focus to it.

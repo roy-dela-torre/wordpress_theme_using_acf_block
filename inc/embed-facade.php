@@ -7,9 +7,9 @@
  * saves megabytes of third-party JS and keeps LCP/INP fast.
  *
  * Usage:
- *   echo lp_embed_facade(get_field('embed'), ['poster' => get_field('embed_poster')]);
+ *   echo ck_embed_facade(get_field('embed'), ['poster' => get_field('embed_poster')]);
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 if (!defined('ABSPATH')) {
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
  * @param string $embed Raw embed code or URL.
  * @return array|null
  */
-function lp_embed_parse($embed)
+function ck_embed_parse($embed)
 {
 	$embed = trim((string) $embed);
 	if ($embed === '') {
@@ -64,7 +64,7 @@ function lp_embed_parse($embed)
  * @param string $src Original iframe src or page URL.
  * @return array
  */
-function lp_embed_provider($src)
+function ck_embed_provider($src)
 {
 	$query = array();
 	$parts = wp_parse_url($src);
@@ -143,9 +143,9 @@ function lp_embed_provider($src)
  * @param string $url Public video page URL.
  * @return array { title, thumbnail }
  */
-function lp_embed_oembed_data($url)
+function ck_embed_oembed_data($url)
 {
-	$key    = 'lp_oembed_' . md5($url);
+	$key    = 'ck_oembed_' . md5($url);
 	$cached = get_transient($key);
 	if (is_array($cached)) {
 		return $cached;
@@ -179,7 +179,7 @@ function lp_embed_oembed_data($url)
  * }
  * @return string
  */
-function lp_embed_facade($embed, $args = array())
+function ck_embed_facade($embed, $args = array())
 {
 	$args = wp_parse_args($args, array(
 		'poster' => null,
@@ -188,12 +188,12 @@ function lp_embed_facade($embed, $args = array())
 		'class'  => '',
 	));
 
-	$iframe = lp_embed_parse($embed);
+	$iframe = ck_embed_parse($embed);
 	if (!$iframe) {
 		return (string) $embed;
 	}
 
-	$provider = lp_embed_provider($iframe['src']);
+	$provider = ck_embed_provider($iframe['src']);
 	$poster   = '';
 
 	// Providers' copy-paste codes use generic titles; they describe nothing.
@@ -202,7 +202,7 @@ function lp_embed_facade($embed, $args = array())
 
 	if (in_array($provider['type'], array('youtube', 'vimeo'), true)) {
 		// The real video title is the most descriptive label for "Play video: …".
-		$oembed = lp_embed_oembed_data($provider['page_url']);
+		$oembed = ck_embed_oembed_data($provider['page_url']);
 		$title  = $oembed['title'] ?: $title;
 		if ($provider['type'] === 'vimeo' && $oembed['thumbnail']) {
 			$provider['poster'] = $oembed['thumbnail'];
@@ -214,26 +214,26 @@ function lp_embed_facade($embed, $args = array())
 	switch ($provider['type']) {
 		case 'youtube':
 		case 'vimeo':
-			$title  = $title ?: __('Video', 'launchpad');
+			$title  = $title ?: __('Video', 'chusie-kokoro');
 			/* translators: %s: video title */
-			$label  = sprintf(__('Play video: %s', 'launchpad'), $title);
-			$button = __('Play video', 'launchpad');
+			$label  = sprintf(__('Play video: %s', 'chusie-kokoro'), $title);
+			$button = __('Play video', 'chusie-kokoro');
 			$icon   = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/></svg>';
 			break;
 
 		case 'map':
-			$title  = $title ?: __('Map', 'launchpad');
+			$title  = $title ?: __('Map', 'chusie-kokoro');
 			/* translators: %s: map title */
-			$label  = sprintf(__('Load interactive map: %s', 'launchpad'), $title);
-			$button = __('View map', 'launchpad');
+			$label  = sprintf(__('Load interactive map: %s', 'chusie-kokoro'), $title);
+			$button = __('View map', 'chusie-kokoro');
 			$icon   = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
 			break;
 
 		default:
-			$title  = $title ?: __('Embedded content', 'launchpad');
+			$title  = $title ?: __('Embedded content', 'chusie-kokoro');
 			/* translators: %s: embed title */
-			$label  = sprintf(__('Load embedded content: %s', 'launchpad'), $title);
-			$button = __('Load content', 'launchpad');
+			$label  = sprintf(__('Load embedded content: %s', 'chusie-kokoro'), $title);
+			$button = __('Load content', 'chusie-kokoro');
 			$icon   = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.7 16.3 4.4 12l4.3-4.3-1.4-1.4L1.6 12l5.7 5.7 1.4-1.4zm6.6 0 4.3-4.3-4.3-4.3 1.4-1.4 5.7 5.7-5.7 5.7-1.4-1.4z"/></svg>';
 	}
 
@@ -243,14 +243,14 @@ function lp_embed_facade($embed, $args = array())
 
 	if ($poster_id) {
 		$poster = wp_get_attachment_image($poster_id, 'large', false, array(
-			'class'    => 'lp-embed-facade__poster',
+			'class'    => 'ck-embed-facade__poster',
 			'alt'      => '',
 			'loading'  => 'lazy',
 			'decoding' => 'async',
 		));
 	} elseif ($provider['poster']) {
 		$poster = sprintf(
-			'<img class="lp-embed-facade__poster" src="%s"%s alt="" width="1280" height="720" loading="lazy" decoding="async">',
+			'<img class="ck-embed-facade__poster" src="%s"%s alt="" width="1280" height="720" loading="lazy" decoding="async">',
 			esc_url($provider['poster']),
 			$provider['fallback'] ? ' data-fallback="' . esc_url($provider['fallback']) . '"' : ''
 		);
@@ -264,9 +264,9 @@ function lp_embed_facade($embed, $args = array())
 	}
 	$ratio = $ratio ?: '16 / 9';
 
-	$classes = array('lp-embed-facade', 'lp-embed-facade--' . $provider['type']);
+	$classes = array('ck-embed-facade', 'ck-embed-facade--' . $provider['type']);
 	if (!$poster) {
-		$classes[] = 'lp-embed-facade--placeholder';
+		$classes[] = 'ck-embed-facade--placeholder';
 	}
 	if ($args['class']) {
 		$classes[] = $args['class'];
@@ -278,15 +278,15 @@ function lp_embed_facade($embed, $args = array())
 	ob_start();
 	?>
 	<div class="<?php echo esc_attr(implode(' ', $classes)); ?>"
-		style="--lp-embed-ratio: <?php echo esc_attr($ratio); ?>"
-		data-lp-embed
+		style="--ck-embed-ratio: <?php echo esc_attr($ratio); ?>"
+		data-ck-embed
 		data-src="<?php echo esc_url($provider['src']); ?>"
 		data-title="<?php echo esc_attr($title); ?>"
 		data-allow="<?php echo esc_attr($allow); ?>"
 		data-referrerpolicy="<?php echo esc_attr($referrerpolicy); ?>">
-		<button type="button" class="lp-embed-facade__trigger" aria-label="<?php echo esc_attr($label); ?>">
-			<span class="lp-embed-facade__icon"><?php echo $icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?></span>
-			<span class="lp-embed-facade__label"><?php echo esc_html($provider['type'] === 'iframe' || $provider['type'] === 'map' ? $button : $title); ?></span>
+		<button type="button" class="ck-embed-facade__trigger" aria-label="<?php echo esc_attr($label); ?>">
+			<span class="ck-embed-facade__icon"><?php echo $icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?></span>
+			<span class="ck-embed-facade__label"><?php echo esc_html($provider['type'] === 'iframe' || $provider['type'] === 'map' ? $button : $title); ?></span>
 		</button>
 		<?php echo $poster; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built above. ?>
 		<noscript>

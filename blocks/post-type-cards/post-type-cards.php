@@ -50,34 +50,34 @@ if (isset($taxonomy_filters[$post_type])) {
 
 $posts = get_posts($query_args);
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
-lp_section_open($block, 'post-type-cards', array(
+ck_section_open($block, 'post-type-cards', array(
     'default_bg' => 'light',
     'labelledby' => $header ? $heading_id : '',
-    'after' => $decorations ? '<div class="lp-post-type-cards__decoration circle-decoration" aria-hidden="true"></div>' : '',
+    'after' => $decorations ? '<div class="ck-post-type-cards__decoration circle-decoration" aria-hidden="true"></div>' : '',
 ));
 ?>
 
     <?php if ($header || $sub_header || $content) : ?>
-        <div class="lp-post-type-cards__intro">
+        <div class="ck-post-type-cards__intro">
             <?php if ($header) : ?>
-                <h2 id="<?php echo esc_attr($heading_id); ?>" class="lp-post-type-cards__header"><?php echo esc_html($header); ?></h2>
+                <h2 id="<?php echo esc_attr($heading_id); ?>" class="ck-post-type-cards__header"><?php echo esc_html($header); ?></h2>
             <?php endif; ?>
 
             <?php if ($sub_header) : ?>
-                <p class="lp-post-type-cards__sub-header lp-lead"><?php echo esc_html($sub_header); ?></p>
+                <p class="ck-post-type-cards__sub-header ck-lead"><?php echo esc_html($sub_header); ?></p>
             <?php endif; ?>
 
             <?php if ($content) : ?>
-                <div class="lp-post-type-cards__body"><?php echo wp_kses_post($content); ?></div>
+                <div class="ck-post-type-cards__body"><?php echo wp_kses_post($content); ?></div>
             <?php endif; ?>
         </div>
     <?php endif; ?>
 
     <?php if ($posts) :
         global $post; ?>
-        <div class="lp-post-type-cards__grid" data-stagger>
+        <div class="ck-post-type-cards__grid" data-stagger>
             <?php foreach ($posts as $post) :
                 setup_postdata($post);
                 get_template_part('template-parts/cards/card', get_post_type());
@@ -87,9 +87,9 @@ lp_section_open($block, 'post-type-cards', array(
     <?php endif; ?>
 
     <?php if ($btn) : ?>
-        <div class="lp-post-type-cards__footer">
-            <?php lp_buttons($btn, null, 'lp-btn-group--center'); ?>
+        <div class="ck-post-type-cards__footer">
+            <?php ck_buttons($btn, null, 'ck-btn-group--center'); ?>
         </div>
     <?php endif; ?>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

@@ -1,14 +1,14 @@
 function initStateNavAccordions() {
 
-    let blocks = document.querySelectorAll(".lp-state-nav");
+    let blocks = document.querySelectorAll(".ck-state-nav");
 
     blocks.forEach((block) => {
 
-        const cards = block.querySelectorAll(".lp-state-nav__card");
+        const cards = block.querySelectorAll(".ck-state-nav__card");
 
         cards.forEach((card) => {
 
-            const trigger = card.querySelector('.lp-state-nav__card-trigger');
+            const trigger = card.querySelector('.ck-state-nav__card-trigger');
 
             if (!trigger) return;
 
@@ -21,7 +21,7 @@ function initStateNavAccordions() {
                 cards.forEach((other) => {
                     if (other === card || !other.classList.contains('open')) return;
                     other.classList.remove('open');
-                    other.querySelector('.lp-state-nav__card-trigger').setAttribute('aria-expanded', false);
+                    other.querySelector('.ck-state-nav__card-trigger').setAttribute('aria-expanded', false);
                 });
             });
 

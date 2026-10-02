@@ -16,37 +16,37 @@ $media_size = 'full';
 
 $stats = get_field('stats');
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
-$decorations = '<img class="lp-hero-home__background-icon" src="' . esc_url(get_parent_theme_file_uri('assets/img/clarvida-icon.png')) . '" alt="" aria-hidden="true" loading="lazy" decoding="async" />';
+$decorations = '<img class="ck-hero-home__background-icon" src="' . esc_url(get_parent_theme_file_uri('assets/img/clarvida-icon.png')) . '" alt="" aria-hidden="true" loading="lazy" decoding="async" />';
 
-lp_section_open($block, 'hero-home', array(
+ck_section_open($block, 'hero-home', array(
     'default_bg' => 'brand',
     'labelledby' => $header ? $heading_id : '',
     'after' => $decorations,
 ));
 ?>
 
-    <div class="lp-hero-home__content">
+    <div class="ck-hero-home__content">
         <?php if ($header) : ?>
-            <h1 id="<?php echo esc_attr($heading_id); ?>" class="lp-hero-home__header"><?php echo esc_html($header); ?></h1>
+            <h1 id="<?php echo esc_attr($heading_id); ?>" class="ck-hero-home__header"><?php echo esc_html($header); ?></h1>
         <?php endif; ?>
 
         <?php if ($sub_header) : ?>
-            <p class="lp-hero-home__sub-header lp-lead"><?php echo esc_html($sub_header); ?></p>
+            <p class="ck-hero-home__sub-header ck-lead"><?php echo esc_html($sub_header); ?></p>
         <?php endif; ?>
 
-        <?php lp_buttons($btn, null, 'lp-hero-home__actions'); ?>
+        <?php ck_buttons($btn, null, 'ck-hero-home__actions'); ?>
 
         <?php if ($stats) : ?>
-            <ul class="lp-hero-home__stats" data-stagger>
+            <ul class="ck-hero-home__stats" data-stagger>
                 <?php foreach ($stats as $stat) : ?>
-                    <li class="lp-hero-home__stat">
+                    <li class="ck-hero-home__stat">
                         <?php if (!empty($stat['header'])) : ?>
-                            <span class="lp-hero-home__stat-value"><?php echo esc_html($stat['header']); ?></span>
+                            <span class="ck-hero-home__stat-value"><?php echo esc_html($stat['header']); ?></span>
                         <?php endif; ?>
                         <?php if (!empty($stat['body'])) : ?>
-                            <span class="lp-hero-home__stat-label"><?php echo esc_html($stat['body']); ?></span>
+                            <span class="ck-hero-home__stat-label"><?php echo esc_html($stat['body']); ?></span>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
@@ -55,9 +55,9 @@ lp_section_open($block, 'hero-home', array(
     </div>
 
     <?php if ($hero_image) : ?>
-        <div class="lp-hero-home__media">
+        <div class="ck-hero-home__media">
             <?php echo wp_get_attachment_image($hero_image['ID'], $media_size, false, array(
-                'class' => 'lp-hero-home__img',
+                'class' => 'ck-hero-home__img',
                 'loading' => 'eager',
                 'fetchpriority' => 'high',
                 'decoding' => 'async',
@@ -65,4 +65,4 @@ lp_section_open($block, 'hero-home', array(
         </div>
     <?php endif; ?>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

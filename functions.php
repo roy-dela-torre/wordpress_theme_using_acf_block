@@ -1,11 +1,11 @@
 <?php
 
 /**
- * launchpad functions and definitions
+ * Chusie Kokoro functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 if (!defined('_S_VERSION')) {
@@ -20,15 +20,15 @@ if (!defined('_S_VERSION')) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function launchpad_setup()
+function chusie_kokoro_setup()
 {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on launchpad, use a find and replace
-	 * to change 'launchpad' to the name of your theme in all the template files.
+	 * If you're building a theme based on Chusie Kokoro, use a find and replace
+	 * to change 'chusie-kokoro' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain('launchpad', get_template_directory() . '/languages');
+	load_theme_textdomain('chusie-kokoro', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');
@@ -51,9 +51,9 @@ function launchpad_setup()
 	// This theme uses wp_nav_menu() in multiple locations.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'launchpad'),
-			'utility-menu' => esc_html__('Utility Menu', 'launchpad'),
-			'footer-menu' => esc_html__('Footer Menu', 'launchpad'),
+			'menu-1' => esc_html__('Primary', 'chusie-kokoro'),
+			'utility-menu' => esc_html__('Utility Menu', 'chusie-kokoro'),
+			'footer-menu' => esc_html__('Footer Menu', 'chusie-kokoro'),
 		)
 	);
 
@@ -78,7 +78,7 @@ function launchpad_setup()
 	add_theme_support(
 		'custom-background',
 		apply_filters(
-			'launchpad_custom_background_args',
+			'chusie_kokoro_custom_background_args',
 			array(
 				'default-color' => 'ffffff',
 				'default-image' => '',
@@ -104,7 +104,7 @@ function launchpad_setup()
 		)
 	);
 }
-add_action('after_setup_theme', 'launchpad_setup');
+add_action('after_setup_theme', 'chusie_kokoro_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -113,70 +113,70 @@ add_action('after_setup_theme', 'launchpad_setup');
  *
  * @global int $content_width
  */
-function launchpad_content_width()
+function chusie_kokoro_content_width()
 {
-	$GLOBALS['content_width'] = apply_filters('launchpad_content_width', 640);
+	$GLOBALS['content_width'] = apply_filters('chusie_kokoro_content_width', 640);
 }
-add_action('after_setup_theme', 'launchpad_content_width', 0);
+add_action('after_setup_theme', 'chusie_kokoro_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function launchpad_widgets_init()
+function chusie_kokoro_widgets_init()
 {
 	//setup widgets here
 }
-add_action('widgets_init', 'launchpad_widgets_init');
+add_action('widgets_init', 'chusie_kokoro_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function launchpad_scripts()
+function chusie_kokoro_scripts()
 {
 
 	wp_enqueue_style(
-		'launchpad-google-fonts',
+		'chusie-kokoro-google-fonts',
 		'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap',
 		[],
 		null
 	);
 
-	wp_enqueue_style('launchpad-style', get_stylesheet_uri(), array(), _S_VERSION);
-	wp_style_add_data('launchpad-style', 'rtl', 'replace');
+	wp_enqueue_style('chusie-kokoro-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('chusie-kokoro-style', 'rtl', 'replace');
 
-	wp_enqueue_style('launchpad-mega-menu', get_template_directory_uri() . '/css/mega-menu.css', array(), _S_VERSION);
-	wp_enqueue_style('launchpad-utility-nav', get_template_directory_uri() . '/css/utility-nav.css', array(), _S_VERSION);
+	wp_enqueue_style('chusie-kokoro-mega-menu', get_template_directory_uri() . '/css/mega-menu.css', array(), _S_VERSION);
+	wp_enqueue_style('chusie-kokoro-utility-nav', get_template_directory_uri() . '/css/utility-nav.css', array(), _S_VERSION);
 
 
 	if (is_home()) {
-		wp_enqueue_style('launchpad-blog', get_template_directory_uri() . '/css/blog.css', array(), _S_VERSION);
+		wp_enqueue_style('chusie-kokoro-blog', get_template_directory_uri() . '/css/blog.css', array(), _S_VERSION);
 	}
 
-	wp_enqueue_script('launchpad-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
-	wp_enqueue_script('launchpad-smooth-scroll', get_template_directory_uri() . '/js/smooth-scroll.js', array(), _S_VERSION, true);
+	wp_enqueue_script('chusie-kokoro-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('chusie-kokoro-smooth-scroll', get_template_directory_uri() . '/js/smooth-scroll.js', array(), _S_VERSION, true);
 
-	wp_enqueue_script('launchpad-js', get_template_directory_uri() . '/js/launchpad.js', array(), _S_VERSION, true);
-	wp_enqueue_script('launchpad-animations', get_template_directory_uri() . '/js/animations.js', array(), _S_VERSION, array('in_footer' => true, 'strategy' => 'defer'));
+	wp_enqueue_script('chusie-kokoro-js', get_template_directory_uri() . '/js/chusie-kokoro.js', array(), _S_VERSION, true);
+	wp_enqueue_script('chusie-kokoro-animations', get_template_directory_uri() . '/js/animations.js', array(), _S_VERSION, array('in_footer' => true, 'strategy' => 'defer'));
 
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
-add_action('wp_enqueue_scripts', 'launchpad_scripts');
+add_action('wp_enqueue_scripts', 'chusie_kokoro_scripts');
 
 /**
  * Click-to-load embed facade. Loaded on the front end and inside the block
  * editor iframe so previews behave the same.
  */
-function launchpad_embed_facade_script()
+function chusie_kokoro_embed_facade_script()
 {
-	wp_enqueue_script('launchpad-embed-facade', get_template_directory_uri() . '/js/embed-facade.js', array(), _S_VERSION, array('in_footer' => true, 'strategy' => 'defer'));
+	wp_enqueue_script('chusie-kokoro-embed-facade', get_template_directory_uri() . '/js/embed-facade.js', array(), _S_VERSION, array('in_footer' => true, 'strategy' => 'defer'));
 }
-add_action('enqueue_block_assets', 'launchpad_embed_facade_script');
-//add_action('admin_enqueue_scripts', 'launchpad_scripts');
+add_action('enqueue_block_assets', 'chusie_kokoro_embed_facade_script');
+//add_action('admin_enqueue_scripts', 'chusie_kokoro_scripts');
 
 function enqueue_swiper()
 {
@@ -191,7 +191,7 @@ add_action('enqueue_block_assets', 'enqueue_swiper');
 /**
  * Append outbound icon SVG to utility nav items with the "icon-outbound" CSS class.
  */
-function launchpad_utility_nav_outbound_icon($title, $item, $args, $depth)
+function chusie_kokoro_utility_nav_outbound_icon($title, $item, $args, $depth)
 {
 	if ('utility-menu' !== $args->theme_location) {
 		return $title;
@@ -201,7 +201,7 @@ function launchpad_utility_nav_outbound_icon($title, $item, $args, $depth)
 	}
 	return $title;
 }
-add_filter('nav_menu_item_title', 'launchpad_utility_nav_outbound_icon', 10, 4);
+add_filter('nav_menu_item_title', 'chusie_kokoro_utility_nav_outbound_icon', 10, 4);
 
 /**
  * Custom Walker for Mega Menu Navigation.
@@ -356,7 +356,7 @@ add_filter('allowed_block_types_all', 'deny_blocks');
  *
  * @link https://developer.wordpress.org/reference/hooks/init/
  */
-function launchpad_register_acf_blocks()
+function chusie_kokoro_register_acf_blocks()
 {
 	register_block_type(__DIR__ . '/blocks/hero-home');
 	register_block_type(__DIR__ . '/blocks/content-media-img');
@@ -382,7 +382,7 @@ function launchpad_register_acf_blocks()
 	register_block_type(__DIR__ . '/blocks/service-program-filter');
 	register_block_type(__DIR__ . '/blocks/maps-cards');
 }
-add_action('init', 'launchpad_register_acf_blocks');
+add_action('init', 'chusie_kokoro_register_acf_blocks');
 
 // Create a new catogory that will contain all ACF blocks
 add_filter('block_categories_all', function ($categories, $post) {
@@ -493,37 +493,37 @@ add_action('init', function () {
  * Force-enable Description and CSS Classes fields in the menu editor.
  */
 add_filter('manage_nav-menus_columns', function ($columns) {
-	$columns['description'] = __('Description', 'launchpad');
-	$columns['css-classes'] = __('CSS Classes', 'launchpad');
+	$columns['description'] = __('Description', 'chusie-kokoro');
+	$columns['css-classes'] = __('CSS Classes', 'chusie-kokoro');
 	return $columns;
 });
 
 /**
  * Filter the except length to 20 words.
  */
-function launchpad_custom_excerpt_length($length)
+function chusie_kokoro_custom_excerpt_length($length)
 {
 	return 20;
 }
-add_filter('excerpt_length', 'launchpad_custom_excerpt_length', 999);
+add_filter('excerpt_length', 'chusie_kokoro_custom_excerpt_length', 999);
 
-function launchpad_add_gtm_head_snippet()
+function chusie_kokoro_add_gtm_head_snippet()
 {
 	$gtm_group = get_field('gtm', 'option');
 	if ($gtm_group && $gtm_group['gtm_head_snippet']) {
 		echo $gtm_group['gtm_head_snippet'];
 	}
 }
-add_action('wp_head', 'launchpad_add_gtm_head_snippet', 10);
+add_action('wp_head', 'chusie_kokoro_add_gtm_head_snippet', 10);
 
-function launchpad_add_gtm_body_snippet()
+function chusie_kokoro_add_gtm_body_snippet()
 {
 	$gtm_group = get_field('gtm', 'option');
 	if ($gtm_group && $gtm_group['gtm_body_snippet']) {
 		echo $gtm_group['gtm_body_snippet'];
 	}
 }
-add_action('wp_body_open', 'launchpad_add_gtm_body_snippet', 10);
+add_action('wp_body_open', 'chusie_kokoro_add_gtm_body_snippet', 10);
 
 function enable_breadcrumbs()
 {

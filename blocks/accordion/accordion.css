@@ -13,20 +13,20 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-accordion .block-contents {
+.ck-accordion .block-contents {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: start;
   gap: var(--column-gap);
 }
 
-.lp-accordion .block-contents:not(:has(.lp-accordion__list)) {
+.ck-accordion .block-contents:not(:has(.ck-accordion__list)) {
   grid-template-columns: 1fr;
 }
 
 /* Intro (sticky on larger screens)
 --------------------------------------------- */
-.lp-accordion__intro {
+.ck-accordion__intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -36,42 +36,42 @@
   top: 180px;
 }
 
-.lp-accordion__actions {
+.ck-accordion__actions {
   margin-top: 8px;
 }
 
 @media screen and (max-width: 767px) {
-  .lp-accordion .block-contents {
+  .ck-accordion .block-contents {
     grid-template-columns: 1fr;
   }
-  .lp-accordion__intro {
+  .ck-accordion__intro {
     position: static;
   }
 }
 /* Accordion
 --------------------------------------------- */
-.lp-accordion__list {
+.ck-accordion__list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.lp-accordion__item {
+.ck-accordion__item {
   transition: background-color var(--duration) ease, box-shadow var(--duration) ease, border-color var(--duration) ease;
 }
-.lp-accordion__item:hover {
+.ck-accordion__item:hover {
   box-shadow: var(--shadow-md);
 }
-.lp-accordion__item.is-open {
+.ck-accordion__item.is-open {
   background: var(--color-background-light);
   border-color: rgba(7, 94, 126, 0.2);
 }
 
-.lp-accordion__item-heading {
+.ck-accordion__item-heading {
   margin: 0;
 }
 
-.lp-accordion__trigger {
+.ck-accordion__trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,13 +84,13 @@
   font: inherit;
   cursor: pointer;
 }
-.lp-accordion__trigger:focus-visible {
+.ck-accordion__trigger:focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: -3px;
   border-radius: var(--radius-md);
 }
 
-.lp-accordion__icon {
+.ck-accordion__icon {
   position: relative;
   flex-shrink: 0;
   width: 32px;
@@ -99,7 +99,7 @@
   background: var(--color-background-light);
   transition: background-color var(--duration) ease, transform var(--duration) var(--ease-out);
 }
-.lp-accordion__icon::before, .lp-accordion__icon::after {
+.ck-accordion__icon::before, .ck-accordion__icon::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -111,34 +111,34 @@
   transform: translate(-50%, -50%);
   transition: transform var(--duration) var(--ease-out);
 }
-.lp-accordion__icon::after {
+.ck-accordion__icon::after {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.lp-accordion__item.is-open .lp-accordion__icon {
+.ck-accordion__item.is-open .ck-accordion__icon {
   background: var(--color-accent);
   transform: rotate(180deg);
 }
-.lp-accordion__item.is-open .lp-accordion__icon::after {
+.ck-accordion__item.is-open .ck-accordion__icon::after {
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
-.lp-accordion__panel {
+.ck-accordion__panel {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--duration) var(--ease-in-out);
 }
 
-.lp-accordion__item.is-open .lp-accordion__panel {
+.ck-accordion__item.is-open .ck-accordion__panel {
   grid-template-rows: 1fr;
 }
 
-.lp-accordion__panel-inner {
+.ck-accordion__panel-inner {
   min-height: 0;
   overflow: hidden;
 }
 
-.lp-accordion__panel-content {
+.ck-accordion__panel-content {
   padding: 0 24px 24px;
 }
 
@@ -147,17 +147,17 @@
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-accordion__header {
+.ck-accordion__header {
   margin: 0;
   font-size: var(--font-size-h1);
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-accordion__content {
-  color: var(--lp-text);
+.ck-accordion__content {
+  color: var(--ck-text);
 }
 
-.lp-accordion__item-title {
+.ck-accordion__item-title {
   font-family: var(--font-family-body);
   font-size: var(--font-size-body-large);
   font-weight: 600;
@@ -165,6 +165,6 @@
   color: var(--color-primary-dark);
 }
 
-.lp-accordion__panel-content p:last-child {
+.ck-accordion__panel-content p:last-child {
   margin-bottom: 0;
 }

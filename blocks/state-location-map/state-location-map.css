@@ -13,11 +13,11 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-state-location-map .block-contents {
+.ck-state-location-map .block-contents {
   gap: 40px;
 }
 
-.lp-state-location-map__intro {
+.ck-state-location-map__intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -30,54 +30,54 @@
 
 /* Store locator
 --------------------------------------------- */
-.lp-state-location-map__locator {
+.ck-state-location-map__locator {
   width: 100%;
 }
 
-.lp-state-location-map #wpsl-wrap {
+.ck-state-location-map #wpsl-wrap {
   display: flex;
   flex-direction: column;
 }
 
-.lp-state-location-map #wpsl-wrap #wpsl-gmap {
+.ck-state-location-map #wpsl-wrap #wpsl-gmap {
   width: 100%;
   overflow: hidden;
   box-shadow: var(--shadow-md);
 }
 
-.lp-state-location-map #wpsl-wrap #wpsl-result-list {
+.ck-state-location-map #wpsl-wrap #wpsl-result-list {
   width: 100%;
   margin: 40px 0 0;
 }
 
-.lp-state-location-map #wpsl-result-list #wpsl-stores > ul {
+.ck-state-location-map #wpsl-result-list #wpsl-stores > ul {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.lp-state-location-map .wpsl-listing-content .wpsl-gmb-link {
+.ck-state-location-map .wpsl-listing-content .wpsl-gmb-link {
   color: var(--color-primary-dark);
   font-weight: 300;
   text-decoration: underline;
   font-family: var(--font-family-body);
 }
 
-.lp-state-location-map .wpsl-listing-content address {
+.ck-state-location-map .wpsl-listing-content address {
   margin: 0;
 }
 
-.lp-state-location-map #wpsl-result-list #wpsl-stores .wpsl-listing-cta {
+.ck-state-location-map #wpsl-result-list #wpsl-stores .wpsl-listing-cta {
   font-family: var(--font-family-body);
   font-size: var(--font-size-body-large);
   font-weight: 600;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  .lp-state-location-map #wpsl-result-list #wpsl-stores > ul {
+  .ck-state-location-map #wpsl-result-list #wpsl-stores > ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (max-width: 767px) {
-  .lp-state-location-map #wpsl-result-list #wpsl-stores > ul {
+  .ck-state-location-map #wpsl-result-list #wpsl-stores > ul {
     grid-template-columns: 1fr;
   }
 }
@@ -86,17 +86,17 @@
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-state-location-map__header {
+.ck-state-location-map__header {
   margin: 0;
   font-size: var(--font-size-h1);
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-state-location-map__sub-header {
+.ck-state-location-map__sub-header {
   margin: 0;
-  color: var(--lp-heading-strong);
+  color: var(--ck-heading-strong);
 }
 
-.lp-state-location-map__content {
-  color: var(--lp-text);
+.ck-state-location-map__content {
+  color: var(--ck-text);
 }

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 get_header();
@@ -27,12 +27,12 @@ $blog_title = $blog_page_id ? get_the_title($blog_page_id) : 'Blog';
 		endif;
 		?>
 
-		<section class="lp-blog no_bg">
+		<section class="ck-blog no_bg">
 			<div class="block-contents">
 
 				<?php if ( have_posts() ) : ?>
 
-					<div class="lp-blog__grid">
+					<div class="ck-blog__grid">
 						<?php
 						while ( have_posts() ) :
 							the_post();
@@ -44,7 +44,7 @@ $blog_title = $blog_page_id ? get_the_title($blog_page_id) : 'Blog';
 					<?php the_posts_pagination( array(
 						'prev_text' => '&laquo; Previous',
 						'next_text' => 'Next &raquo;',
-						'class'     => 'lp-blog__pagination',
+						'class'     => 'ck-blog__pagination',
 					) ); ?>
 
 				<?php else : ?>

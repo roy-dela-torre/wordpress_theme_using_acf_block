@@ -10,17 +10,17 @@
 $header = get_field('header');
 $btn = get_field('button');
 
-lp_section_open($block, 'banner', array(
+ck_section_open($block, 'banner', array(
     'animation' => 'zoom-in',
 ));
 ?>
 
-    <div class="lp-banner__inner lp-surface">
+    <div class="ck-banner__inner ck-surface">
         <?php if ($header) : ?>
-            <p class="lp-banner__header"><?php echo esc_html($header); ?></p>
+            <p class="ck-banner__header"><?php echo esc_html($header); ?></p>
         <?php endif; ?>
 
-        <?php lp_buttons($btn, null, 'lp-banner__actions'); ?>
+        <?php ck_buttons($btn, null, 'ck-banner__actions'); ?>
     </div>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

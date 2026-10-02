@@ -4,19 +4,19 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 ?>
 
-<article class="lp-template-part-card__card">
-	<div class="lp-template-part-card__card-contents">
+<article class="ck-template-part-card__card">
+	<div class="ck-template-part-card__card-contents">
 		<?php if (get_the_title()) : ?>
-			<h3 class="lp-template-part-card__card-title"><?php the_title() ?></h3>
+			<h3 class="ck-template-part-card__card-title"><?php the_title() ?></h3>
 		<?php endif; ?>
 
 		<?php if (get_the_excerpt()) : ?>
-			<div class="lp-template-part-card__card-body">
+			<div class="ck-template-part-card__card-body">
 				<?php the_excerpt() ?>
 			</div>
 		<?php endif; ?>

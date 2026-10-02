@@ -7,18 +7,18 @@
 (function () {
 	'use strict';
 
-	if (window.lpAccordionReady) {
+	if (window.ckAccordionReady) {
 		return;
 	}
-	window.lpAccordionReady = true;
+	window.ckAccordionReady = true;
 
 	document.addEventListener('click', (event) => {
-		const trigger = event.target.closest('.lp-accordion__trigger');
+		const trigger = event.target.closest('.ck-accordion__trigger');
 		if (!trigger) {
 			return;
 		}
 
-		const item = trigger.closest('.lp-accordion__item');
+		const item = trigger.closest('.ck-accordion__item');
 		const isOpen = item.classList.toggle('is-open');
 		trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 	});

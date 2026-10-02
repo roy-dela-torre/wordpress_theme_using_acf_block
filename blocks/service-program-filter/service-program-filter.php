@@ -21,33 +21,33 @@ $states = get_terms(array(
     'hide_empty' => true,
 ));
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
-lp_section_open($block, 'service-program-filter', array(
+ck_section_open($block, 'service-program-filter', array(
     'default_bg' => 'light',
     'labelledby' => $header ? $heading_id : '',
 ));
 ?>
 
-    <div class="lp-service-program-filter__intro">
+    <div class="ck-service-program-filter__intro">
         <?php if ($header) : ?>
-            <h2 id="<?php echo esc_attr($heading_id); ?>" class="lp-service-program-filter__header"><?php echo esc_html($header); ?></h2>
+            <h2 id="<?php echo esc_attr($heading_id); ?>" class="ck-service-program-filter__header"><?php echo esc_html($header); ?></h2>
         <?php endif; ?>
 
         <?php if ($content) : ?>
-            <div class="lp-service-program-filter__body"><?php echo wp_kses_post($content); ?></div>
+            <div class="ck-service-program-filter__body"><?php echo wp_kses_post($content); ?></div>
         <?php endif; ?>
 
-        <form class="lp-service-program-filter__filters" onsubmit="return false;">
-            <label class="lp-service-program-filter__label" for="service-program-states">
+        <form class="ck-service-program-filter__filters" onsubmit="return false;">
+            <label class="ck-service-program-filter__label" for="service-program-states">
                 <?php
                 /* translators: %s: "programs" or "services" */
-                echo esc_html(sprintf(__('Select your state to view the %ss offered in your area.', 'launchpad'), $post_type));
+                echo esc_html(sprintf(__('Select your state to view the %ss offered in your area.', 'chusie-kokoro'), $post_type));
                 ?>
             </label>
-            <div class="lp-service-program-filter__select-wrap">
-                <select name="service-program-states" id="service-program-states" class="lp-service-program-filter__select">
-                    <option value=""><?php esc_html_e('Select Your State', 'launchpad'); ?></option>
+            <div class="ck-service-program-filter__select-wrap">
+                <select name="service-program-states" id="service-program-states" class="ck-service-program-filter__select">
+                    <option value=""><?php esc_html_e('Select Your State', 'chusie-kokoro'); ?></option>
                     <?php if (!is_wp_error($states)) :
                         foreach ($states as $state) : ?>
                             <option value="<?php echo esc_attr($state->slug); ?>"><?php echo esc_html($state->name); ?></option>
@@ -59,9 +59,9 @@ lp_section_open($block, 'service-program-filter', array(
         </form>
     </div>
 
-    <div class="lp-service-program-filter__grid" id="lp-service-program-filter__grid" aria-live="polite"></div>
+    <div class="ck-service-program-filter__grid" id="ck-service-program-filter__grid" aria-live="polite"></div>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>
 
 <?php if (is_admin()) : ?>
 <script type="text/javascript">

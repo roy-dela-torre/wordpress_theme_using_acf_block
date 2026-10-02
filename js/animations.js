@@ -1,9 +1,9 @@
 /**
  * File animations.js.
  *
- * Scroll reveal for Launchpad blocks. Pairs with sass/components/_animations.scss.
+ * Scroll reveal for Chusie Kokoro blocks. Pairs with sass/components/_animations.scss.
  *
- * - Every `.lp-block[data-animate]` section gets its items tagged with `.lp-anim`:
+ * - Every `.ck-block[data-animate]` section gets its items tagged with `.ck-anim`:
  *   the direct children of `.block-contents`, plus the children of any
  *   `[data-stagger]` container (cards, columns, stats, …).
  * - Each item is revealed when it scrolls into view. Items that enter together
@@ -14,9 +14,9 @@
 (function () {
 	'use strict';
 
-	window.lpAnimReady = true;
+	window.ckAnimReady = true;
 
-	const SECTION_SELECTOR = '.lp-block[data-animate]:not([data-animate="none"])';
+	const SECTION_SELECTOR = '.ck-block[data-animate]:not([data-animate="none"])';
 	const SKIP = 'script, style, template, noscript, link';
 	const MAX_STAGGER = 6;
 
@@ -29,7 +29,7 @@
 
 	// No animation: show everything straight away.
 	if (reduceMotion || !('IntersectionObserver' in window)) {
-		sections.forEach((section) => section.classList.add('lp-anim-ready', 'is-inview'));
+		sections.forEach((section) => section.classList.add('ck-anim-ready', 'is-inview'));
 		return;
 	}
 
@@ -74,8 +74,8 @@
 				return;
 			}
 			el.removeEventListener('transitionend', done);
-			el.classList.remove('lp-anim', 'is-inview');
-			el.style.removeProperty('--lp-anim-i');
+			el.classList.remove('ck-anim', 'is-inview');
+			el.style.removeProperty('--ck-anim-i');
 		};
 		el.addEventListener('transitionend', done);
 	};
@@ -87,7 +87,7 @@
 			.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
 
 		visible.forEach((el, index) => {
-			el.style.setProperty('--lp-anim-i', Math.min(index, MAX_STAGGER));
+			el.style.setProperty('--ck-anim-i', Math.min(index, MAX_STAGGER));
 			el.classList.add('is-inview');
 			itemObserver.unobserve(el);
 			finish(el);
@@ -111,10 +111,10 @@
 
 	sections.forEach((section) => {
 		collectItems(section).forEach((item) => {
-			item.classList.add('lp-anim');
+			item.classList.add('ck-anim');
 			itemObserver.observe(item);
 		});
-		section.classList.add('lp-anim-ready');
+		section.classList.add('ck-anim-ready');
 		sectionObserver.observe(section);
 	});
 })();

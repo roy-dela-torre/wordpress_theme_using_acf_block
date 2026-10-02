@@ -13,11 +13,11 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-post-type-cards .block-contents {
+.ck-post-type-cards .block-contents {
   gap: clamp(32px, 4vw, 48px);
 }
 
-.lp-post-type-cards__intro {
+.ck-post-type-cards__intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -25,30 +25,30 @@
   max-width: var(--max-width-narrow);
   max-width: none;
   padding-bottom: 24px;
-  border-bottom: 2px solid var(--lp-rule);
+  border-bottom: 2px solid var(--ck-rule);
 }
 
-.lp-post-type-cards__footer {
+.ck-post-type-cards__footer {
   display: flex;
   justify-content: center;
 }
 
 /* Grid Layout
 --------------------------------------------- */
-.lp-post-type-cards__grid {
+.ck-post-type-cards__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--grid-gap);
 }
 
 @media screen and (max-width: 767px) {
-  .lp-post-type-cards__grid {
+  .ck-post-type-cards__grid {
     grid-template-columns: 1fr;
   }
 }
 /* Decoration
 --------------------------------------------- */
-.lp-post-type-cards__decoration {
+.ck-post-type-cards__decoration {
   position: absolute;
   z-index: 2;
   top: 24px;
@@ -57,7 +57,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .lp-post-type-cards__decoration {
+  .ck-post-type-cards__decoration {
     display: none;
   }
 }
@@ -66,18 +66,18 @@
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-post-type-cards__header {
+.ck-post-type-cards__header {
   margin: 0;
   font-size: var(--font-size-h1);
   font-weight: 600;
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-post-type-cards__sub-header {
+.ck-post-type-cards__sub-header {
   margin: 0;
-  color: var(--lp-heading-strong);
+  color: var(--ck-heading-strong);
 }
 
-.lp-post-type-cards__body {
-  color: var(--lp-text);
+.ck-post-type-cards__body {
+  color: var(--ck-text);
 }

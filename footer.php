@@ -6,12 +6,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 ?>
 
-	<footer id="colophon" class="site-footer lp-footer">
+	<footer id="colophon" class="site-footer ck-footer">
 		<?php get_template_part('template-parts/footer/site', 'footer'); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

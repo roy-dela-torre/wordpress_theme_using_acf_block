@@ -67,12 +67,12 @@ if (file_exists($svg_path)) {
     $svg = preg_replace('/<svg\b/', '<svg aria-hidden="true" focusable="false"', $svg, 1);
 }
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
 $after = '';
 if ($decorations) {
     ob_start(); ?>
-    <div class="lp-us-map__decorations" aria-hidden="true">
+    <div class="ck-us-map__decorations" aria-hidden="true">
         <?php (new LeftUDecoration)->output(); ?>
         <?php (new RightCircleDecoration)->output(); ?>
     </div>
@@ -80,33 +80,33 @@ if ($decorations) {
     $after = ob_get_clean();
 }
 
-lp_section_open($block, 'us-map', array(
+ck_section_open($block, 'us-map', array(
     'labelledby' => $header ? $heading_id : '',
     'after' => $after,
 ));
 ?>
 
     <?php if ($header || $sub_header || $body) : ?>
-        <div class="lp-us-map__intro">
+        <div class="ck-us-map__intro">
             <?php if ($header) : ?>
-                <h2 id="<?php echo esc_attr($heading_id); ?>" class="lp-us-map__header"><?php echo esc_html($header); ?></h2>
+                <h2 id="<?php echo esc_attr($heading_id); ?>" class="ck-us-map__header"><?php echo esc_html($header); ?></h2>
             <?php endif; ?>
             <?php if ($sub_header) : ?>
-                <p class="lp-us-map__sub-header lp-lead"><?php echo esc_html($sub_header); ?></p>
+                <p class="ck-us-map__sub-header ck-lead"><?php echo esc_html($sub_header); ?></p>
             <?php endif; ?>
             <?php if ($body) : ?>
-                <div class="lp-us-map__body"><?php echo wp_kses_post($body); ?></div>
+                <div class="ck-us-map__body"><?php echo wp_kses_post($body); ?></div>
             <?php endif; ?>
         </div>
     <?php endif; ?>
 
-    <div class="lp-us-map__map-area">
-        <div class="lp-us-map__map-wrapper" data-states="<?php echo esc_attr(wp_json_encode($state_map)); ?>">
+    <div class="ck-us-map__map-area">
+        <div class="ck-us-map__map-wrapper" data-states="<?php echo esc_attr(wp_json_encode($state_map)); ?>">
             <?php echo $svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- theme-bundled SVG. ?>
         </div>
 
         <?php if ($legend_states) : ?>
-            <ul class="lp-us-map__legend">
+            <ul class="ck-us-map__legend">
                 <?php foreach ($legend_states as $code => $data) : ?>
                     <li>
                         <a href="<?php echo esc_url($data['url']); ?>"
@@ -119,12 +119,12 @@ lp_section_open($block, 'us-map', array(
     </div>
 
     <?php if ($caption) : ?>
-        <div class="lp-us-map__caption"><?php echo wp_kses_post($caption); ?></div>
+        <div class="ck-us-map__caption"><?php echo wp_kses_post($caption); ?></div>
     <?php endif; ?>
 
     <?php if ($state_map) : ?>
-        <nav class="lp-us-map__state-nav" aria-label="<?php esc_attr_e('Locations by state', 'launchpad'); ?>">
-            <ul class="lp-us-map__state-list">
+        <nav class="ck-us-map__state-nav" aria-label="<?php esc_attr_e('Locations by state', 'chusie-kokoro'); ?>">
+            <ul class="ck-us-map__state-list">
                 <?php foreach ($state_map as $code => $data) : ?>
                     <li>
                         <a href="<?php echo esc_url($data['url']); ?>"
@@ -135,9 +135,9 @@ lp_section_open($block, 'us-map', array(
         </nav>
     <?php endif; ?>
 
-    <?php lp_buttons($btn, null, 'lp-btn-group--center'); ?>
+    <?php ck_buttons($btn, null, 'ck-btn-group--center'); ?>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>
 
 <?php if (is_admin()) : ?>
 <script type="text/javascript">

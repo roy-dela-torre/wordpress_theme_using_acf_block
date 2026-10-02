@@ -13,12 +13,12 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-staff .block-contents {
+.ck-staff .block-contents {
   align-items: center;
   gap: clamp(32px, 4vw, 48px);
 }
 
-.lp-staff__intro {
+.ck-staff__intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -31,7 +31,7 @@
 
 /* Staff grid
 --------------------------------------------- */
-.lp-staff__list {
+.ck-staff__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--grid-gap);
@@ -42,19 +42,19 @@
   list-style: none;
 }
 
-.lp-staff__member {
+.ck-staff__member {
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 24px;
 }
 
-.lp-staff__member-media {
+.ck-staff__member-media {
   position: relative;
   flex-shrink: 0;
   isolation: isolate;
 }
-.lp-staff__member-media::before {
+.ck-staff__member-media::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -67,11 +67,11 @@
   transition: transform var(--duration) var(--ease-out);
 }
 
-.lp-staff__member:hover .lp-staff__member-media::before {
+.ck-staff__member:hover .ck-staff__member-media::before {
   transform: scale(1.15);
 }
 
-.lp-staff__img {
+.ck-staff__img {
   display: block;
   width: 140px;
   height: 140px;
@@ -80,7 +80,7 @@
   background-color: var(--color-surface);
 }
 
-.lp-staff__member-details {
+.ck-staff__member-details {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -88,7 +88,7 @@
 
 /* Decorations
 --------------------------------------------- */
-.lp-staff__decorations {
+.ck-staff__decorations {
   position: absolute;
   z-index: 2;
   inset: 0;
@@ -97,30 +97,30 @@
   margin-inline: auto;
   pointer-events: none;
 }
-.lp-staff__decorations .left-u-decoration,
-.lp-staff__decorations .right-circle-decoration {
+.ck-staff__decorations .left-u-decoration,
+.ck-staff__decorations .right-circle-decoration {
   position: absolute;
   opacity: 0.1;
 }
-.lp-staff__decorations .left-u-decoration {
+.ck-staff__decorations .left-u-decoration {
   top: 0;
   left: 0;
 }
-.lp-staff__decorations .right-circle-decoration {
+.ck-staff__decorations .right-circle-decoration {
   right: 0;
   bottom: 50px;
 }
 
 @media screen and (max-width: 1024px) {
-  .lp-staff__decorations {
+  .ck-staff__decorations {
     display: none;
   }
 }
 @media screen and (max-width: 767px) {
-  .lp-staff__list {
+  .ck-staff__list {
     grid-template-columns: 1fr;
   }
-  .lp-staff__member {
+  .ck-staff__member {
     flex-direction: column;
     text-align: center;
   }
@@ -130,31 +130,31 @@
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-staff__header {
+.ck-staff__header {
   margin: 0;
   font-size: var(--font-size-h1);
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-staff__content {
-  color: var(--lp-text);
+.ck-staff__content {
+  color: var(--ck-text);
 }
 
-.lp-staff__member-name {
+.ck-staff__member-name {
   margin: 0;
   font-family: var(--font-family-body);
   font-size: var(--font-size-body-large);
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-staff__member-credentials {
+.ck-staff__member-credentials {
   margin: 0;
   font-weight: 600;
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-staff__member-description {
+.ck-staff__member-description {
   margin: 0;
   font-size: var(--font-size-body-small);
-  color: var(--lp-muted);
+  color: var(--ck-muted);
 }

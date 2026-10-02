@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 global $post;
@@ -14,14 +14,14 @@ $state = get_state($post);
 
 ?>
 
-<article class="lp-template-part-service-card card" data-state="<?= $state ?>">
-	<div class="lp-template-part-service-card__contents card__contents">
+<article class="ck-template-part-service-card card" data-state="<?= $state ?>">
+	<div class="ck-template-part-service-card__contents card__contents">
 		<?php if ($title) : ?>
-			<h3 class="lp-template-part-service-card__title card__title"><?= $title ?></h3>
+			<h3 class="ck-template-part-service-card__title card__title"><?= $title ?></h3>
 		<?php endif; ?>
 
 		<?php if (get_the_excerpt()) : ?>
-			<div class="lp-template-part-service-card__body card__body">
+			<div class="ck-template-part-service-card__body card__body">
 				<?php the_excerpt() ?>
 			</div>
 		<?php endif; ?>
@@ -31,19 +31,19 @@ $state = get_state($post);
 
 <?php /* original version with links enabled - swap back to this once Service pages are ready
 
-<article class="lp-template-part-service-card card" data-state="<?= $state ?>">
-	<a href="<?= get_the_permalink() ?>" class="lp-template-part-service-card__contents card__contents">
+<article class="ck-template-part-service-card card" data-state="<?= $state ?>">
+	<a href="<?= get_the_permalink() ?>" class="ck-template-part-service-card__contents card__contents">
 		<?php if ($title) : ?>
-			<h3 class="lp-template-part-service-card__title card__title"><?= $title ?></h3>
+			<h3 class="ck-template-part-service-card__title card__title"><?= $title ?></h3>
 		<?php endif; ?>
 
 		<?php if (get_the_excerpt()) : ?>
-			<div class="lp-template-part-service-card__body card__body">
+			<div class="ck-template-part-service-card__body card__body">
 				<?php the_excerpt() ?>
 			</div>
 		<?php endif; ?>
 
-		<span aria-hidden="true" class="btn btn-simple lp-template-part-service-card__btn card__btn">
+		<span aria-hidden="true" class="btn btn-simple ck-template-part-service-card__btn card__btn">
 			Learn More <svg width="3" height="6" viewBox="0 0 3 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.394287 0.307495L2.3756 2.84767L0.394287 5.38784"></path></svg>
 		</span>
 	</a>

@@ -13,7 +13,7 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-content-media-bubble .block-contents {
+.ck-content-media-bubble .block-contents {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   align-items: center;
@@ -21,9 +21,9 @@
 
 /* Bubble
 --------------------------------------------- */
-.lp-content-media-bubble__content {
-  --lp-heading: var(--color-secondary-light);
-  --lp-text: rgba(255, 255, 255, 0.9);
+.ck-content-media-bubble__content {
+  --ck-heading: var(--color-secondary-light);
+  --ck-text: rgba(255, 255, 255, 0.9);
   position: relative;
   z-index: 1;
   display: flex;
@@ -37,31 +37,31 @@
 
 /* Stats
 --------------------------------------------- */
-.lp-content-media-bubble__stats {
+.ck-content-media-bubble__stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin: 0;
 }
 
-.lp-content-media-bubble__stat {
+.ck-content-media-bubble__stat {
   padding-left: 16px;
   border-left: 3px solid var(--color-accent);
 }
 
-.lp-content-media-bubble__stat-label {
+.ck-content-media-bubble__stat-label {
   margin: 0;
 }
 
 /* Badge
 --------------------------------------------- */
-.lp-content-media-bubble__badge {
+.ck-content-media-bubble__badge {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.lp-content-media-bubble__badge-img {
+.ck-content-media-bubble__badge-img {
   width: 100%;
   max-width: 140px;
   height: auto;
@@ -69,13 +69,13 @@
 
 /* Media
 --------------------------------------------- */
-.lp-content-media-bubble__media {
+.ck-content-media-bubble__media {
   position: relative;
   z-index: 2;
   margin: 0 0 0 -96px;
 }
 
-.lp-content-media-bubble__img {
+.ck-content-media-bubble__img {
   display: block;
   width: 100%;
   max-width: 500px;
@@ -87,23 +87,23 @@
 }
 
 @media screen and (max-width: 767px) {
-  .lp-content-media-bubble .block-contents {
+  .ck-content-media-bubble .block-contents {
     grid-template-columns: 1fr;
   }
-  .lp-content-media-bubble__content {
+  .ck-content-media-bubble__content {
     order: 1;
     padding: 110px 28px 48px;
     border-radius: var(--radius-lg);
   }
-  .lp-content-media-bubble__media {
+  .ck-content-media-bubble__media {
     display: flex;
     justify-content: center;
     margin: 0 0 -90px;
   }
-  .lp-content-media-bubble__img {
+  .ck-content-media-bubble__img {
     max-width: 260px;
   }
-  .lp-content-media-bubble__stats {
+  .ck-content-media-bubble__stats {
     grid-template-columns: 1fr;
   }
 }
@@ -112,31 +112,31 @@
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-content-media-bubble__header {
+.ck-content-media-bubble__header {
   margin: 0;
   font-size: var(--font-size-h1);
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-content-media-bubble__body {
-  color: var(--lp-text);
+.ck-content-media-bubble__body {
+  color: var(--ck-text);
 }
 
-.lp-content-media-bubble__stat-value {
+.ck-content-media-bubble__stat-value {
   font-family: var(--font-family-heading);
   font-size: var(--font-size-large);
   font-weight: 700;
   line-height: 1.1;
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-content-media-bubble__stat-label {
+.ck-content-media-bubble__stat-label {
   font-size: var(--font-size-body);
-  color: var(--lp-text);
+  color: var(--ck-text);
 }
 
-.lp-content-media-bubble__badge-text {
+.ck-content-media-bubble__badge-text {
   font-style: italic;
   font-weight: 300;
-  color: var(--lp-text);
+  color: var(--ck-text);
 }

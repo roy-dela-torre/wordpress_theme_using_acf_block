@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 ?>
@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'launchpad' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'chusie-kokoro' ); ?></a>
 
 	<?php get_template_part( 'template-parts/navigation/utility-nav' ); ?>
 
@@ -43,17 +43,17 @@
                                              rel="home"><?php bloginfo('name'); ?></a></p>
                 <?php
                 endif;
-                $launchpad_description = get_bloginfo('description', 'display');
-                if ($launchpad_description || is_customize_preview()) :
+                $chusie_kokoro_description = get_bloginfo('description', 'display');
+                if ($chusie_kokoro_description || is_customize_preview()) :
                     ?>
-                    <p class="site-description"><?php echo $launchpad_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    <p class="site-description"><?php echo $chusie_kokoro_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         ?></p>
                 <?php endif; ?>
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
                 <button class="menu-toggle" aria-controls="primary-menu"
-                        aria-expanded="false"><?php esc_html_e('Primary Menu', 'launchpad'); ?></button>
+                        aria-expanded="false"><?php esc_html_e('Primary Menu', 'chusie-kokoro'); ?></button>
                 <?php
                 wp_nav_menu(
                         array(

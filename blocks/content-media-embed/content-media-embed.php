@@ -18,34 +18,34 @@ $btn = get_field('button');
 $embed = get_field('embed');
 $embed_pos = get_field('embed_position') === 'left' ? 'left' : 'right';
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
-lp_section_open($block, 'content-media-embed', array(
-    'class' => 'lp-content-media-embed--media-' . $embed_pos,
+ck_section_open($block, 'content-media-embed', array(
+    'class' => 'ck-content-media-embed--media-' . $embed_pos,
     'labelledby' => $header ? $heading_id : '',
 ));
 ?>
 
-    <div class="lp-content-media-embed__content">
+    <div class="ck-content-media-embed__content">
         <?php if ($header) : ?>
-            <h2 id="<?php echo esc_attr($heading_id); ?>" class="lp-content-media-embed__header"><?php echo esc_html($header); ?></h2>
+            <h2 id="<?php echo esc_attr($heading_id); ?>" class="ck-content-media-embed__header"><?php echo esc_html($header); ?></h2>
         <?php endif; ?>
 
         <?php if ($sub_header) : ?>
-            <p class="lp-content-media-embed__sub-header lp-lead"><?php echo esc_html($sub_header); ?></p>
+            <p class="ck-content-media-embed__sub-header ck-lead"><?php echo esc_html($sub_header); ?></p>
         <?php endif; ?>
 
         <?php if ($body) : ?>
-            <div class="lp-content-media-embed__body"><?php echo wp_kses_post($body); ?></div>
+            <div class="ck-content-media-embed__body"><?php echo wp_kses_post($body); ?></div>
         <?php endif; ?>
 
-        <?php lp_buttons($btn, null, 'lp-content-media-embed__actions'); ?>
+        <?php ck_buttons($btn, null, 'ck-content-media-embed__actions'); ?>
     </div>
 
     <?php if ($embed) : ?>
-        <div class="lp-content-media-embed__media">
-            <?php echo lp_embed_facade($embed, array('title' => $header)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside lp_embed_facade(). ?>
+        <div class="ck-content-media-embed__media">
+            <?php echo ck_embed_facade($embed, array('title' => $header)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ck_embed_facade(). ?>
         </div>
     <?php endif; ?>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

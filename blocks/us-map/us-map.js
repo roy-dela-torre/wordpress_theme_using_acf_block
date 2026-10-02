@@ -1,8 +1,8 @@
 function initUsMap() {
-	var blocks = document.querySelectorAll('.lp-us-map');
+	var blocks = document.querySelectorAll('.ck-us-map');
 
 	blocks.forEach(function (block) {
-		var wrapper = block.querySelector('.lp-us-map__map-wrapper');
+		var wrapper = block.querySelector('.ck-us-map__map-wrapper');
 		if (!wrapper) return;
 
 		var stateData = {};
@@ -21,7 +21,7 @@ function initUsMap() {
 			var state = stateData[baseCode];
 
 			if (state && state.url) {
-				path.classList.add('lp-us-map__state--linked');
+				path.classList.add('ck-us-map__state--linked');
 
 				path.addEventListener('click', function () {
 					window.open(state.url, state.target || '_self');
@@ -29,7 +29,7 @@ function initUsMap() {
 			}
 		});
 
-		var legendLinks = block.querySelectorAll('.lp-us-map__legend a[data-state]');
+		var legendLinks = block.querySelectorAll('.ck-us-map__legend a[data-state]');
 
 		legendLinks.forEach(function (link) {
 			var stateCode = link.dataset.state.toUpperCase();
@@ -38,14 +38,14 @@ function initUsMap() {
 				paths.forEach(function (path) {
 					var baseCode = path.id.toUpperCase().replace(/-.*$/, '');
 					if (baseCode === stateCode) {
-						path.classList.add('lp-us-map__state--hover');
+						path.classList.add('ck-us-map__state--hover');
 					}
 				});
 			});
 
 			link.addEventListener('mouseleave', function () {
 				paths.forEach(function (path) {
-					path.classList.remove('lp-us-map__state--hover');
+					path.classList.remove('ck-us-map__state--hover');
 				});
 			});
 		});

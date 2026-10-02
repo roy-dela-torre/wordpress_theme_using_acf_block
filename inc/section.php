@@ -1,25 +1,25 @@
 <?php
 /**
- * Shared section wrapper for every Launchpad ACF block.
+ * Shared section wrapper for every Chusie Kokoro ACF block.
  *
  * Reads the "Block: Section Settings" field group (acf-json/group_6a5f10a2c4d01.json)
  * and prints the standard block wrapper:
  *
- *   <section class="lp-block lp-{slug} has_bg|no_bg …" data-animate="fade-up">
+ *   <section class="ck-block ck-{slug} has_bg|no_bg …" data-animate="fade-up">
  *       <div id="{anchor}" class="block-contents {className}">
  *           …block markup…
  *       </div>
- *       <div class="lp-section__tint"></div>
- *       <div class="lp-section__media"><img class="lp-section__cover"></div>
+ *       <div class="ck-section__tint"></div>
+ *       <div class="ck-section__media"><img class="ck-section__cover"></div>
  *   </section>
  *
  * Usage inside a block template:
  *
- *   lp_section_open($block, 'cards', ['default_bg' => 'light']);
+ *   ck_section_open($block, 'cards', ['default_bg' => 'light']);
  *       …markup…
- *   lp_section_close();
+ *   ck_section_close();
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 if (!defined('ABSPATH')) {
@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) {
 /**
  * Background presets an editor can choose, mapped to whether they need light text.
  */
-function lp_section_presets()
+function ck_section_presets()
 {
 	return array(
 		'light' => false,
@@ -42,17 +42,17 @@ function lp_section_presets()
 /**
  * Entrance animations an editor can choose.
  */
-function lp_section_animations()
+function ck_section_animations()
 {
 	return array('fade-up', 'fade', 'zoom-in', 'slide-left', 'slide-right', 'none');
 }
 
 /**
- * Stack of open sections so lp_section_close() knows what to print.
+ * Stack of open sections so ck_section_close() knows what to print.
  *
  * @return array
  */
-function &lp_section_stack()
+function &ck_section_stack()
 {
 	static $stack = array();
 	return $stack;
@@ -65,10 +65,10 @@ function &lp_section_stack()
  * @param string $suffix Optional suffix.
  * @return string
  */
-function lp_heading_id($block, $suffix = 'title')
+function ck_heading_id($block, $suffix = 'title')
 {
 	$id = !empty($block['id']) ? $block['id'] : uniqid('block_');
-	return 'lp-' . sanitize_html_class($id) . '-' . $suffix;
+	return 'ck-' . sanitize_html_class($id) . '-' . $suffix;
 }
 
 /**
@@ -77,7 +77,7 @@ function lp_heading_id($block, $suffix = 'title')
  * @param mixed $color Raw value.
  * @return string Safe CSS color or ''.
  */
-function lp_sanitize_css_color($color)
+function ck_sanitize_css_color($color)
 {
 	if (!is_string($color)) {
 		return '';
@@ -101,7 +101,7 @@ function lp_sanitize_css_color($color)
  * @param string $color Hex or rgb(a) color.
  * @return bool
  */
-function lp_is_dark_color($color)
+function ck_is_dark_color($color)
 {
 	$rgb = null;
 
@@ -132,10 +132,10 @@ function lp_is_dark_color($color)
 /**
  * Collects the section settings for the current block.
  *
- * @param array $args See lp_section_open().
+ * @param array $args See ck_section_open().
  * @return array
  */
-function lp_section_settings($args)
+function ck_section_settings($args)
 {
 	$get = function ($name) {
 		return function_exists('get_field') ? get_field($name) : null;
@@ -147,9 +147,9 @@ function lp_section_settings($args)
 		'animation'  => (string) $get('section_animation'),
 		'padding'    => (array) $get('section_padding'),
 		'bg_type'    => (string) $get('section_bg_type'),
-		'bg_color'   => lp_sanitize_css_color($get('section_bg_color')),
-		'grad_start' => lp_sanitize_css_color($get('section_gradient_start')),
-		'grad_end'   => lp_sanitize_css_color($get('section_gradient_end')),
+		'bg_color'   => ck_sanitize_css_color($get('section_bg_color')),
+		'grad_start' => ck_sanitize_css_color($get('section_gradient_start')),
+		'grad_end'   => ck_sanitize_css_color($get('section_gradient_end')),
 		'grad_angle' => $get('section_gradient_angle'),
 		'bg_image'   => $get('section_bg_image'),
 		'tint'       => (bool) $get('section_tint'),
@@ -160,7 +160,7 @@ function lp_section_settings($args)
 		$settings['bg_type'] = $args['default_bg'];
 	}
 
-	if (!in_array($settings['animation'], lp_section_animations(), true)) {
+	if (!in_array($settings['animation'], ck_section_animations(), true)) {
 		$settings['animation'] = $args['animation'];
 	}
 
@@ -168,23 +168,23 @@ function lp_section_settings($args)
 }
 
 /**
- * Opens a block section. Must be paired with lp_section_close().
+ * Opens a block section. Must be paired with ck_section_close().
  *
  * @param array  $block ACF block array passed to the render template.
- * @param string $slug  Block slug without the lp- prefix, e.g. 'cards'.
+ * @param string $slug  Block slug without the ck- prefix, e.g. 'cards'.
  * @param array  $args {
  *     @type string $default_bg     Background used when the editor leaves "Default":
  *                                  none|light|muted|dark|brand. Default 'none'.
  *     @type string $animation      Default entrance animation. Default 'fade-up'.
  *     @type string $class          Extra classes for the <section> (modifiers).
  *     @type string $contents_class Extra classes for .block-contents.
- *     @type string $labelledby     Heading id for aria-labelledby (see lp_heading_id()).
+ *     @type string $labelledby     Heading id for aria-labelledby (see ck_heading_id()).
  *     @type array  $attrs          Extra attributes for the <section>, e.g. data-*.
  *     @type string $after          Decorative markup printed after .block-contents
  *                                  (outside the animated content), e.g. background icons.
  * }
  */
-function lp_section_open($block, $slug, $args = array())
+function ck_section_open($block, $slug, $args = array())
 {
 	$args = wp_parse_args($args, array(
 		'default_bg'     => 'none',
@@ -199,32 +199,32 @@ function lp_section_open($block, $slug, $args = array())
 	static $rendered = 0;
 	$rendered++;
 
-	$s        = lp_section_settings($args);
-	$classes  = array('lp-block', 'lp-' . $slug);
+	$s        = ck_section_settings($args);
+	$classes  = array('ck-block', 'ck-' . $slug);
 	$styles   = array();
 	$has_bg   = false;
 	$is_dark  = false;
 	$media    = '';
 	$tint     = false;
-	$presets  = lp_section_presets();
+	$presets  = ck_section_presets();
 
 	/* Background
 	--------------------------------------------- */
 	switch ($s['bg_type']) {
 		case 'color':
 			if ($s['bg_color']) {
-				$styles[] = '--lp-bg:' . $s['bg_color'];
+				$styles[] = '--ck-bg:' . $s['bg_color'];
 				$has_bg   = true;
-				$is_dark  = lp_is_dark_color($s['bg_color']);
+				$is_dark  = ck_is_dark_color($s['bg_color']);
 			}
 			break;
 
 		case 'gradient':
 			if ($s['grad_start'] && $s['grad_end']) {
 				$angle    = is_numeric($s['grad_angle']) ? (int) $s['grad_angle'] : 135;
-				$styles[] = sprintf('--lp-bg:linear-gradient(%ddeg, %s 0%%, %s 100%%)', $angle, $s['grad_start'], $s['grad_end']);
+				$styles[] = sprintf('--ck-bg:linear-gradient(%ddeg, %s 0%%, %s 100%%)', $angle, $s['grad_start'], $s['grad_end']);
 				$has_bg   = true;
-				$is_dark  = lp_is_dark_color($s['grad_start']) && lp_is_dark_color($s['grad_end']);
+				$is_dark  = ck_is_dark_color($s['grad_start']) && ck_is_dark_color($s['grad_end']);
 			}
 			break;
 
@@ -238,7 +238,7 @@ function lp_section_open($block, $slug, $args = array())
 				// The first section on the page is usually the LCP element: load it eagerly.
 				$eager = $rendered === 1;
 				$media = wp_get_attachment_image($image_id, $eager ? 'full' : 'large', false, array(
-					'class'         => 'lp-section__cover lp-' . $slug . '__cover',
+					'class'         => 'ck-section__cover ck-' . $slug . '__cover',
 					'alt'           => '',
 					'loading'       => $eager ? 'eager' : 'lazy',
 					'fetchpriority' => $eager ? 'high' : 'auto',
@@ -250,7 +250,7 @@ function lp_section_open($block, $slug, $args = array())
 
 		default:
 			if (isset($presets[$s['bg_type']])) {
-				$classes[] = 'lp-section--bg-' . $s['bg_type'];
+				$classes[] = 'ck-section--bg-' . $s['bg_type'];
 				$has_bg    = true;
 				$is_dark   = $presets[$s['bg_type']];
 			}
@@ -275,7 +275,7 @@ function lp_section_open($block, $slug, $args = array())
 	foreach ($sides as $side => $token) {
 		$value = $s['padding'][$side] ?? '';
 		if ($value !== '' && $value !== null && is_numeric($value)) {
-			$styles[]  = '--lp-' . $token . ':' . max(0, (int) $value) . 'px';
+			$styles[]  = '--ck-' . $token . ':' . max(0, (int) $value) . 'px';
 			$classes[] = 'has-custom-' . $token;
 		}
 	}
@@ -324,7 +324,7 @@ function lp_section_open($block, $slug, $args = array())
 		esc_attr($contents_classes)
 	);
 
-	$stack   = &lp_section_stack();
+	$stack   = &ck_section_stack();
 	$stack[] = array(
 		'slug'  => $slug,
 		'tint'  => $tint,
@@ -334,11 +334,11 @@ function lp_section_open($block, $slug, $args = array())
 }
 
 /**
- * Closes the section opened by lp_section_open() and prints background layers.
+ * Closes the section opened by ck_section_open() and prints background layers.
  */
-function lp_section_close()
+function ck_section_close()
 {
-	$stack   = &lp_section_stack();
+	$stack   = &ck_section_stack();
 	$section = array_pop($stack);
 
 	echo '</div>';
@@ -349,11 +349,11 @@ function lp_section_close()
 		}
 
 		if ($section['tint']) {
-			printf('<div class="lp-section__tint lp-%s__tint" aria-hidden="true"></div>', esc_attr($section['slug']));
+			printf('<div class="ck-section__tint ck-%s__tint" aria-hidden="true"></div>', esc_attr($section['slug']));
 		}
 
 		if ($section['media']) {
-			echo '<div class="lp-section__media" aria-hidden="true">' . $section['media'] . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image() output.
+			echo '<div class="ck-section__media" aria-hidden="true">' . $section['media'] . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_get_attachment_image() output.
 		}
 	}
 
@@ -361,13 +361,13 @@ function lp_section_close()
 }
 
 /**
- * Prints a primary + secondary button pair inside .lp-btn-group.
+ * Prints a primary + secondary button pair inside .ck-btn-group.
  *
  * @param array|null $primary   ACF link array.
  * @param array|null $secondary ACF link array.
  * @param string     $class     Extra classes for the group wrapper.
  */
-function lp_buttons($primary = null, $secondary = null, $class = '')
+function ck_buttons($primary = null, $secondary = null, $class = '')
 {
 	$primary   = !empty($primary['url']) ? $primary : null;
 	$secondary = !empty($secondary['url']) ? $secondary : null;
@@ -376,7 +376,7 @@ function lp_buttons($primary = null, $secondary = null, $class = '')
 		return;
 	}
 
-	echo '<div class="' . esc_attr(trim('lp-btn-group ' . $class)) . '">';
+	echo '<div class="' . esc_attr(trim('ck-btn-group ' . $class)) . '">';
 	if ($primary) {
 		(new Button($primary, '', 'primary'))->output();
 	}
@@ -387,12 +387,12 @@ function lp_buttons($primary = null, $secondary = null, $class = '')
 }
 
 /**
- * Adds .lp-js to <html> as early as possible so animations can pre-hide
+ * Adds .ck-js to <html> as early as possible so animations can pre-hide
  * content without a flash. If js/animations.js never runs, the class is
  * removed again so nothing stays hidden.
  */
-function lp_animation_head_flag()
+function ck_animation_head_flag()
 {
-	echo "<script>document.documentElement.classList.add('lp-js');setTimeout(function(){if(!window.lpAnimReady){document.documentElement.classList.remove('lp-js');}},4000);</script>\n";
+	echo "<script>document.documentElement.classList.add('ck-js');setTimeout(function(){if(!window.ckAnimReady){document.documentElement.classList.remove('ck-js');}},4000);</script>\n";
 }
-add_action('wp_head', 'lp_animation_head_flag', 1);
+add_action('wp_head', 'ck_animation_head_flag', 1);

@@ -104,7 +104,7 @@
 
 	function closeMegaPanel( item ) {
 		item.classList.remove( 'is-open' );
-		const panel = item.querySelector( '.lp-mega-panel' );
+		const panel = item.querySelector( '.ck-mega-panel' );
 		if ( panel ) {
 			panel.setAttribute( 'aria-hidden', 'true' );
 		}
@@ -123,7 +123,7 @@
 		} );
 
 		item.classList.add( 'is-open' );
-		const panel = item.querySelector( '.lp-mega-panel' );
+		const panel = item.querySelector( '.ck-mega-panel' );
 		if ( panel ) {
 			panel.setAttribute( 'aria-hidden', 'false' );
 		}

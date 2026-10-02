@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 /**
@@ -14,13 +14,13 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function launchpad_jetpack_setup() {
+function chusie_kokoro_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll',
 		array(
 			'container' => 'main',
-			'render'    => 'launchpad_infinite_scroll_render',
+			'render'    => 'chusie_kokoro_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -33,7 +33,7 @@ function launchpad_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'launchpad-style',
+				'stylesheet' => 'chusie-kokoro-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,13 +48,13 @@ function launchpad_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'launchpad_jetpack_setup' );
+add_action( 'after_setup_theme', 'chusie_kokoro_jetpack_setup' );
 
-if ( ! function_exists( 'launchpad_infinite_scroll_render' ) ) :
+if ( ! function_exists( 'chusie_kokoro_infinite_scroll_render' ) ) :
 	/**
 	 * Custom render function for Infinite Scroll.
 	 */
-	function launchpad_infinite_scroll_render() {
+	function chusie_kokoro_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
 			if ( is_search() ) :

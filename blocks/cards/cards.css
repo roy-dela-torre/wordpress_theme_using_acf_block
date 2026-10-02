@@ -13,13 +13,13 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-cards .block-contents {
+.ck-cards .block-contents {
   gap: clamp(32px, 4vw, 48px);
 }
 
 /* Intro
 --------------------------------------------- */
-.lp-cards__intro {
+.ck-cards__intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -27,44 +27,44 @@
   max-width: var(--max-width-narrow);
   max-width: none;
   padding-bottom: 24px;
-  border-bottom: 2px solid var(--lp-rule);
+  border-bottom: 2px solid var(--ck-rule);
 }
 
-.lp-cards__footer {
+.ck-cards__footer {
   display: flex;
   justify-content: center;
 }
 
 /* Grid Layout
 --------------------------------------------- */
-.lp-cards__grid {
+.ck-cards__grid {
   --cols: 3;
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   gap: var(--grid-gap);
 }
 
-.lp-cards--2-col .lp-cards__grid {
+.ck-cards--2-col .ck-cards__grid {
   --cols: 2;
 }
 
-.lp-cards--4-col .lp-cards__grid {
+.ck-cards--4-col .ck-cards__grid {
   --cols: 4;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  .lp-cards--4-col .lp-cards__grid {
+  .ck-cards--4-col .ck-cards__grid {
     --cols: 2;
   }
 }
 @media screen and (max-width: 767px) {
-  .lp-cards__grid {
+  .ck-cards__grid {
     --cols: 1;
   }
 }
 /* Card Layout
 --------------------------------------------- */
-.lp-cards__card {
+.ck-cards__card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -72,19 +72,19 @@
   overflow: hidden;
 }
 
-.lp-cards__card--dark {
-  --lp-heading: var(--color-secondary-light);
-  --lp-text: rgba(255, 255, 255, 0.88);
+.ck-cards__card--dark {
+  --ck-heading: var(--color-secondary-light);
+  --ck-text: rgba(255, 255, 255, 0.88);
   background: var(--gradient-dark);
   border-color: transparent;
 }
 
-.lp-cards__card-media {
+.ck-cards__card-media {
   aspect-ratio: 16/10;
   overflow: hidden;
 }
 
-.lp-cards__card-img {
+.ck-cards__card-img {
   display: block;
   width: 100%;
   height: 100%;
@@ -93,17 +93,17 @@
   transition: transform var(--duration-slow) var(--ease-out);
 }
 
-.lp-cards__card:hover .lp-cards__card-img {
+.ck-cards__card:hover .ck-cards__card-img {
   transform: scale(1.05);
 }
 
 /* This ensures that the image is not set to height: auto
 which happens by default in the block editor. */
-.editor-styles-wrapper .lp-cards__card-img {
+.editor-styles-wrapper .ck-cards__card-img {
   height: 100%;
 }
 
-.lp-cards__card-contents {
+.ck-cards__card-contents {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -111,45 +111,45 @@ which happens by default in the block editor. */
   padding: 24px;
 }
 
-.lp-cards__card-link {
+.ck-cards__card-link {
   color: inherit;
 }
-.lp-cards__card-link::after {
+.ck-cards__card-link::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
 }
-.lp-cards__card-link:focus-visible {
+.ck-cards__card-link:focus-visible {
   outline: none;
 }
 
-.lp-cards__card:has(.lp-cards__card-link:focus-visible) {
+.ck-cards__card:has(.ck-cards__card-link:focus-visible) {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
 }
 
-.lp-cards__card-btn {
+.ck-cards__card-btn {
   margin-top: auto;
   padding-top: 12px;
 }
 
-.lp-cards__card--dark .lp-cards__card-btn {
+.ck-cards__card--dark .ck-cards__card-btn {
   --btn-color: var(--color-secondary-light);
   --btn-color-hover: var(--color-accent-light);
 }
 
-.lp-cards__card:hover .lp-cards__card-btn {
+.ck-cards__card:hover .ck-cards__card-btn {
   color: var(--btn-color-hover);
 }
 
-.lp-cards__card:hover .lp-cards__card-btn svg {
+.ck-cards__card:hover .ck-cards__card-btn svg {
   transform: translateX(4px);
 }
 
 /* Decoration
 --------------------------------------------- */
-.lp-cards__decoration {
+.ck-cards__decoration {
   position: absolute;
   z-index: 2;
   top: 24px;
@@ -158,7 +158,7 @@ which happens by default in the block editor. */
 }
 
 @media screen and (max-width: 1024px) {
-  .lp-cards__decoration {
+  .ck-cards__decoration {
     display: none;
   }
 }
@@ -167,26 +167,26 @@ which happens by default in the block editor. */
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-cards__header {
+.ck-cards__header {
   margin: 0;
   font-size: var(--font-size-h1);
   font-weight: 600;
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-cards__body {
-  color: var(--lp-text);
+.ck-cards__body {
+  color: var(--ck-text);
 }
 
-.lp-cards__card-title {
+.ck-cards__card-title {
   margin: 0;
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-cards__card-body {
-  color: var(--lp-text);
+.ck-cards__card-body {
+  color: var(--ck-text);
 }
 
-.lp-cards__card-body p {
+.ck-cards__card-body p {
   margin-block: 10px;
 }

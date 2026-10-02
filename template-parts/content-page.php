@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 ?>
@@ -14,7 +14,7 @@
 		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php launchpad_post_thumbnail(); ?>
+	<?php chusie_kokoro_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'launchpad' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'chusie-kokoro' ),
 				'after'  => '</div>',
 			)
 		);

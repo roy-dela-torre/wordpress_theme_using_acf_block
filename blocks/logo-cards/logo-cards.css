@@ -13,11 +13,11 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-logo-cards .block-contents {
+.ck-logo-cards .block-contents {
   gap: clamp(32px, 4vw, 48px);
 }
 
-.lp-logo-cards__intro {
+.ck-logo-cards__intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -25,7 +25,7 @@
   max-width: var(--max-width-narrow);
 }
 
-.lp-logo-cards__footer {
+.ck-logo-cards__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,14 +33,14 @@
 }
 
 @media screen and (max-width: 767px) {
-  .lp-logo-cards__footer {
+  .ck-logo-cards__footer {
     flex-direction: column;
     align-items: flex-start;
   }
 }
 /* Grid Layout
 --------------------------------------------- */
-.lp-logo-cards__grid {
+.ck-logo-cards__grid {
   --cols: 3;
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
@@ -50,22 +50,22 @@
   list-style: none;
 }
 
-.lp-logo-cards--2-col .lp-logo-cards__grid {
+.ck-logo-cards--2-col .ck-logo-cards__grid {
   --cols: 2;
 }
 
-.lp-logo-cards--4-col .lp-logo-cards__grid {
+.ck-logo-cards--4-col .ck-logo-cards__grid {
   --cols: 4;
 }
 
 @media screen and (max-width: 767px) {
-  .lp-logo-cards__grid {
+  .ck-logo-cards__grid {
     --cols: 2;
   }
 }
 /* Card Layout
 --------------------------------------------- */
-.lp-logo-cards__card {
+.ck-logo-cards__card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +73,7 @@
   padding: 28px;
 }
 
-.lp-logo-cards__card-img {
+.ck-logo-cards__card-img {
   width: 100%;
   max-height: 120px;
   object-fit: contain;
@@ -81,13 +81,13 @@
   transition: filter var(--duration) ease;
 }
 
-.lp-logo-cards__card:hover .lp-logo-cards__card-img {
+.ck-logo-cards__card:hover .ck-logo-cards__card-img {
   filter: none;
 }
 
 /* This ensures that the image is not set to height: auto
 which happens by default in the block editor. */
-.editor-styles-wrapper .lp-logo-cards__card-img {
+.editor-styles-wrapper .ck-logo-cards__card-img {
   height: 100%;
 }
 
@@ -96,27 +96,27 @@ which happens by default in the block editor. */
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-logo-cards__header {
+.ck-logo-cards__header {
   margin: 0;
   font-size: var(--font-size-h1);
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-logo-cards__body {
-  color: var(--lp-text);
+.ck-logo-cards__body {
+  color: var(--ck-text);
 }
 
-.lp-logo-cards__card-title {
+.ck-logo-cards__card-title {
   margin: 0;
   font-family: var(--font-family-heading);
   font-size: var(--font-size-h3);
   font-weight: 600;
   line-height: 1.25;
   text-align: center;
-  color: var(--lp-heading);
+  color: var(--ck-heading);
 }
 
-.lp-logo-cards__disclaimer {
+.ck-logo-cards__disclaimer {
   margin: 0;
-  color: var(--lp-muted);
+  color: var(--ck-muted);
 }

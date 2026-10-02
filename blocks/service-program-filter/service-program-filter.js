@@ -10,7 +10,7 @@ function initServiceProgramFilter() {
             fetch('/wp-json/custom-clarvida/service-program-cards/?state=' + state + "&post_type=" + post_type)
                 .then(response => response.json())
                 .then(data => {
-                    document.querySelector('#lp-service-program-filter__grid').innerHTML = data;
+                    document.querySelector('#ck-service-program-filter__grid').innerHTML = data;
                 })
                 .catch(error => {
                     console.error('Error fetching cards:', error);

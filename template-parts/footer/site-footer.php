@@ -42,10 +42,10 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
 })) : [];
 ?>
 
-<div class="lp-footer__top">
-    <div class="lp-footer__inner">
+<div class="ck-footer__top">
+    <div class="ck-footer__inner">
 
-        <div class="lp-footer__career-banner">
+        <div class="ck-footer__career-banner">
             <!-- career-banner-title -->
              <?php if ($career_banner_title): ?>
 				<h3> <?php echo esc_html($career_banner_title); ?>  </h3>
@@ -61,17 +61,17 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
         </div>
 
 
-        <div class="lp-footer__contact-disclaimer-container">
-            <div class="lp-footer__contact-container">
+        <div class="ck-footer__contact-disclaimer-container">
+            <div class="ck-footer__contact-container">
 
-                <div class="lp-footer-social-info-container">
+                <div class="ck-footer-social-info-container">
                     <!-- logo -->
                     <?php if ($has_logo || $has_contact) : ?>
-                        <div class="lp-footer__brand">
+                        <div class="ck-footer__brand">
                             <?php if ($has_logo) : ?>
-                                <div class="lp-footer__logo">
+                                <div class="ck-footer__logo">
                                     <?php if ($footer_logo) : ?>
-                                        <a href="/" class="lp-footer__logo-link">
+                                        <a href="/" class="ck-footer__logo-link">
                                             <?php echo wp_get_attachment_image($footer_logo['ID'], 'full'); ?>
                                         </a>
                                     <?php else : ?>
@@ -85,7 +85,7 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
 
                     <!-- custom address -->
                     <?php if ($custom_address) : ?>
-                        <div class="lp-footer__custom-address">
+                        <div class="ck-footer__custom-address">
                             <?php echo $custom_address; ?>
                         </div>
                     <?php endif; ?>
@@ -94,9 +94,9 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
 
                     <!-- socials -->
                     <?php if ($has_social) : ?>
-                        <div class="lp-footer__social-media">
+                        <div class="ck-footer__social-media">
                             <?php if (have_rows('footer_icons_social', 'option')) : ?>
-                                <div class="lp-footer__social">
+                                <div class="ck-footer__social">
                                     <?php while (have_rows('footer_icons_social', 'option')) : the_row(); ?>
                                         <?php
                                         $icon_social = get_sub_field('footer_icon_social');
@@ -104,14 +104,14 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
                                         ?>
 
                                         <?php if ($link && $icon_social) : ?>
-                                            <a class="lp-footer__social-link"
+                                            <a class="ck-footer__social-link"
                                             href="<?php echo esc_url($link); ?>"
                                             target="_blank">
-                                                <?php echo wp_get_attachment_image($icon_social['ID'], $icon_size, false, ['class' => 'lp-footer__social-icon']); ?>
+                                                <?php echo wp_get_attachment_image($icon_social['ID'], $icon_size, false, ['class' => 'ck-footer__social-icon']); ?>
                                             </a>
                                         <?php elseif ($icon_social) : ?>
-                                            <span class="lp-footer__social-link">
-                                                <?php echo wp_get_attachment_image($icon_social['ID'], $icon_size, false, ['class' => 'lp-footer__social-icon']); ?>
+                                            <span class="ck-footer__social-link">
+                                                <?php echo wp_get_attachment_image($icon_social['ID'], $icon_size, false, ['class' => 'ck-footer__social-icon']); ?>
                                             </span>
                                         <?php endif; ?>
 
@@ -128,7 +128,7 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
 
                 <!-- partnership-image -->
                 <?php if ($partnership_image) : ?>
-                    <a href="<?php echo esc_url($partnership_image_link); ?>" class="lp-footer__partnership-image">
+                    <a href="<?php echo esc_url($partnership_image_link); ?>" class="ck-footer__partnership-image">
                         <?php echo wp_get_attachment_image($partnership_image['ID'], 'full'); ?>
                     </a>
                 <?php endif; ?>
@@ -138,14 +138,14 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
             </div>
 
 
-            <div class="lp-footer__menu-discalimers">
+            <div class="ck-footer__menu-discalimers">
                 <!-- primary nav -->
                 <?php if (!empty($menu_items)) : ?>
-                    <nav class="lp-footer__quick-links" aria-label="<?php echo esc_attr__('Quick Links', 'launchpad'); ?>">
-                        <ul class="lp-footer__links">
+                    <nav class="ck-footer__quick-links" aria-label="<?php echo esc_attr__('Quick Links', 'chusie-kokoro'); ?>">
+                        <ul class="ck-footer__links">
                             <?php foreach ($menu_items as $item) : ?>
-                                <li class="lp-footer__link-wrapper">
-                                    <a class="lp-footer__link" href="<?php echo esc_url($item->url); ?>">
+                                <li class="ck-footer__link-wrapper">
+                                    <a class="ck-footer__link" href="<?php echo esc_url($item->url); ?>">
                                         <?php echo esc_html($item->title); ?>
                                     </a>
                                 </li>
@@ -176,7 +176,7 @@ $menu_items = is_array($menu_items) ? array_values(array_filter($menu_items, fun
                     <?php endif; ?>
                 </div>
 
-                <div class="lp-footer__hr"></div>
+                <div class="ck-footer__hr"></div>
 
                 <div class="compliance-info-container">
                     <h3 class="compliance-title"> <?php echo esc_html($compliance_title); ?> </h3>

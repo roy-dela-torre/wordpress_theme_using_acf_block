@@ -14,16 +14,16 @@ $embed = get_field('embed');
 
 // 'muted' default keeps this full-bleed block out of the plain-section
 // spacing collapse, so neighbouring text never touches the map/video.
-lp_section_open($block, 'embed', array(
+ck_section_open($block, 'embed', array(
     'default_bg' => 'muted',
     'animation' => 'fade',
 ));
 ?>
 
     <?php if ($embed) : ?>
-        <?php echo lp_embed_facade($embed, array('class' => 'lp-embed__facade')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside lp_embed_facade(). ?>
+        <?php echo ck_embed_facade($embed, array('class' => 'ck-embed__facade')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ck_embed_facade(). ?>
     <?php elseif (is_admin()) : ?>
-        <p class="lp-embed__empty"><?php esc_html_e('Please add an embed code.', 'launchpad'); ?></p>
+        <p class="ck-embed__empty"><?php esc_html_e('Please add an embed code.', 'chusie-kokoro'); ?></p>
     <?php endif; ?>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

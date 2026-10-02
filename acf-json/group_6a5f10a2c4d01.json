@@ -639,7 +639,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Shared section settings (ID, class, padding, background, animation) for every Launchpad block. Rendered by inc/section.php.",
+    "description": "Shared section settings (ID, class, padding, background, animation) for every Chusie Kokoro block. Rendered by inc/section.php.",
     "show_in_rest": 0,
     "display_title": "",
     "allow_ai_access": false,

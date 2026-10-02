@@ -15,60 +15,60 @@ $staff_members = get_field('staff_members') ?: array();
 $media_size = 'medium';
 $placeholder_id = 5291; // Media library placeholder used when a member has no photo.
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
 ob_start();
 ?>
-<div class="lp-staff__decorations" aria-hidden="true">
+<div class="ck-staff__decorations" aria-hidden="true">
     <?php (new LeftUDecoration)->output(); ?>
     <?php (new RightCircleDecoration)->output(); ?>
 </div>
 <?php
 $decorations = ob_get_clean();
 
-lp_section_open($block, 'staff', array(
+ck_section_open($block, 'staff', array(
     'labelledby' => $header ? $heading_id : '',
     'after' => $decorations,
 ));
 ?>
 
     <?php if ($header || $content || $btn) : ?>
-        <div class="lp-staff__intro">
+        <div class="ck-staff__intro">
             <?php if ($header) : ?>
-                <h2 id="<?php echo esc_attr($heading_id); ?>" class="lp-staff__header"><?php echo esc_html($header); ?></h2>
+                <h2 id="<?php echo esc_attr($heading_id); ?>" class="ck-staff__header"><?php echo esc_html($header); ?></h2>
             <?php endif; ?>
 
             <?php if ($content) : ?>
-                <div class="lp-staff__content"><?php echo wp_kses_post($content); ?></div>
+                <div class="ck-staff__content"><?php echo wp_kses_post($content); ?></div>
             <?php endif; ?>
 
             <?php if (!empty($btn['url'])) :
-                (new Button($btn, 'lp-staff__btn', 'simple'))->output();
+                (new Button($btn, 'ck-staff__btn', 'simple'))->output();
             endif; ?>
         </div>
     <?php endif; ?>
 
     <?php if ($staff_members) : ?>
-        <ul class="lp-staff__list" data-stagger>
+        <ul class="ck-staff__list" data-stagger>
             <?php foreach ($staff_members as $member) :
                 $image_id = !empty($member['image']['ID']) ? $member['image']['ID'] : $placeholder_id;
             ?>
-                <li class="lp-staff__member lp-surface lp-surface--interactive">
-                    <div class="lp-staff__member-media">
+                <li class="ck-staff__member ck-surface ck-surface--interactive">
+                    <div class="ck-staff__member-media">
                         <?php echo wp_get_attachment_image($image_id, $media_size, false, array(
-                            'class' => 'lp-staff__img',
+                            'class' => 'ck-staff__img',
                             'alt' => $member['name'] ?? '',
                         )); ?>
                     </div>
-                    <div class="lp-staff__member-details">
+                    <div class="ck-staff__member-details">
                         <?php if (!empty($member['name'])) : ?>
-                            <h3 class="lp-staff__member-name"><?php echo esc_html($member['name']); ?></h3>
+                            <h3 class="ck-staff__member-name"><?php echo esc_html($member['name']); ?></h3>
                         <?php endif; ?>
                         <?php if (!empty($member['credentials'])) : ?>
-                            <p class="lp-staff__member-credentials"><?php echo esc_html($member['credentials']); ?></p>
+                            <p class="ck-staff__member-credentials"><?php echo esc_html($member['credentials']); ?></p>
                         <?php endif; ?>
                         <?php if (!empty($member['description'])) : ?>
-                            <p class="lp-staff__member-description"><?php echo esc_html($member['description']); ?></p>
+                            <p class="ck-staff__member-description"><?php echo esc_html($member['description']); ?></p>
                         <?php endif; ?>
                     </div>
                 </li>
@@ -76,4 +76,4 @@ lp_section_open($block, 'staff', array(
         </ul>
     <?php endif; ?>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

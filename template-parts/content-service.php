@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 global $post;
@@ -37,7 +37,7 @@ foreach ($locations as $location ) {
 		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php launchpad_post_thumbnail(); ?>
+	<?php chusie_kokoro_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

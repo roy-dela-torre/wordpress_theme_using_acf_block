@@ -8,39 +8,39 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package launchpad
+ * @package chusie-kokoro
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses launchpad_header_style()
+ * @uses chusie_kokoro_header_style()
  */
-function launchpad_custom_header_setup() {
+function chusie_kokoro_custom_header_setup() {
 	add_theme_support(
 		'custom-header',
 		apply_filters(
-			'launchpad_custom_header_args',
+			'chusie_kokoro_custom_header_args',
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
 				'width'              => 1000,
 				'height'             => 250,
 				'flex-height'        => true,
-				'wp-head-callback'   => 'launchpad_header_style',
+				'wp-head-callback'   => 'chusie_kokoro_header_style',
 			)
 		)
 	);
 }
-add_action( 'after_setup_theme', 'launchpad_custom_header_setup' );
+add_action( 'after_setup_theme', 'chusie_kokoro_custom_header_setup' );
 
-if ( ! function_exists( 'launchpad_header_style' ) ) :
+if ( ! function_exists( 'chusie_kokoro_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see launchpad_custom_header_setup().
+	 * @see chusie_kokoro_custom_header_setup().
 	 */
-	function launchpad_header_style() {
+	function chusie_kokoro_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*

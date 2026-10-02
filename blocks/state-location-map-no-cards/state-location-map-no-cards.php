@@ -13,26 +13,26 @@ $btn = get_field('button');
 
 $state = get_field('state');
 
-$heading_id = lp_heading_id($block);
+$heading_id = ck_heading_id($block);
 
-lp_section_open($block, 'state-location-map-no-cards', array(
+ck_section_open($block, 'state-location-map-no-cards', array(
     'labelledby' => $header ? $heading_id : '',
 ));
 ?>
 
-    <div class="lp-state-location-map-no-cards__content lp-surface">
+    <div class="ck-state-location-map-no-cards__content ck-surface">
         <?php if ($header) : ?>
-            <h2 id="<?php echo esc_attr($heading_id); ?>" class="lp-state-location-map-no-cards__header"><?php echo esc_html($header); ?></h2>
+            <h2 id="<?php echo esc_attr($heading_id); ?>" class="ck-state-location-map-no-cards__header"><?php echo esc_html($header); ?></h2>
         <?php endif; ?>
 
         <?php if ($content) : ?>
-            <div class="lp-state-location-map-no-cards__body"><?php echo wp_kses_post($content); ?></div>
+            <div class="ck-state-location-map-no-cards__body"><?php echo wp_kses_post($content); ?></div>
         <?php endif; ?>
 
-        <?php lp_buttons($btn, null, 'lp-state-location-map-no-cards__actions'); ?>
+        <?php ck_buttons($btn, null, 'ck-state-location-map-no-cards__actions'); ?>
     </div>
 
-    <div class="lp-state-location-map-no-cards__locator">
+    <div class="ck-state-location-map-no-cards__locator">
         <?php
         if ($state) {
             // Saved for wpsl_store_data; globals don't survive the pre wpsl_* filters.
@@ -50,4 +50,4 @@ lp_section_open($block, 'state-location-map-no-cards', array(
         ?>
     </div>
 
-<?php lp_section_close(); ?>
+<?php ck_section_close(); ?>

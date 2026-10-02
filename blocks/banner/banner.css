@@ -13,7 +13,7 @@
 /*--------------------------------------------------------------
 # Block contents
 --------------------------------------------------------------*/
-.lp-banner__inner {
+.ck-banner__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,16 +24,16 @@
   box-shadow: var(--shadow-md);
 }
 
-.lp-banner__actions {
+.ck-banner__actions {
   flex-shrink: 0;
 }
 
 @media screen and (max-width: 767px) {
-  .lp-banner__inner {
+  .ck-banner__inner {
     flex-direction: column;
     align-items: flex-start;
   }
-  .lp-banner__actions {
+  .ck-banner__actions {
     width: 100%;
   }
 }
@@ -42,9 +42,9 @@
 --------------------------------------------------------------*/
 /* Default Font Style
 --------------------------------------------- */
-.lp-banner__header {
+.ck-banner__header {
   margin: 0;
   font-size: var(--font-size-body-large);
   font-weight: 700;
-  color: var(--lp-heading-strong);
+  color: var(--ck-heading-strong);
 }
